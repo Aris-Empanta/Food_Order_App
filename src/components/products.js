@@ -16,7 +16,7 @@ export const Products = () => {
 
             setProducts( res.data )
         }) 
-        console.log(params.products)
+      
     }, [setProducts])
 
     return(<div>
