@@ -3,6 +3,7 @@ import io from 'socket.io-client';
 import { useEffect } from "react"
 import { showMessage } from "../functions/chat";
 import {useParams} from 'react-router-dom';
+import axios from 'axios'
 
 export const Chat = () => {    
 
@@ -11,17 +12,8 @@ export const Chat = () => {
 
     useEffect( () => {
  
-          socket.on('message', showMessage)
- 
-          socket.on("chat message", showMessage)
-          
-          const username = params.username        
-          //Sending socket id to server as room
-          socket.on('connect', () => {
-              
-              socket.emit("room", username)
-              console.log(username)
-          })
+        //Append the received and sent messages to the page 
+        socket.on("chat message", showMessage)                 
        }
     )  
 
@@ -29,11 +21,12 @@ export const Chat = () => {
  
     const sendMessage =  (e) => {
           e.preventDefault()
-          
-          let message = document.getElementById("input").value
- 
+
+          let username = params.username           
+          let message = document.getElementById("input").value        
+          //We send the message to the server, and the username to create a room. 
           socket.emit("chat message", {message: message,
-                                        id: socket.id})
+                                       username: username})
     } 
 
     return(<div className="chat">
