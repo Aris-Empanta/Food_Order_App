@@ -11,9 +11,12 @@ export const Chat = () => {
     const params = useParams() 
 
     useEffect( () => {
- 
+        
+        let username = params.username 
         //Append the received and sent messages to the page 
-        socket.on("chat message", showMessage)                 
+        socket.on("chat message", showMessage)
+               
+        socket.emit("customerRoom", username)          
        }
     )  
 
@@ -27,11 +30,13 @@ export const Chat = () => {
           //We send the message to the server, and the username to create a room. 
           socket.emit("chat message", {message: message,
                                        username: username})
+          axios.post('http://localhost:5000/chat-messages', {message: message,
+                                                             username: username})
     } 
 
     return(<div className="chat">
                 <ul id="messages">
-                    <li>hey</li>
+                    
                 </ul>
                 <form id="form" action="" onSubmit={ sendMessage } >
                     <input id="input" /><button>Send</button>
