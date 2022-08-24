@@ -14,9 +14,9 @@ export const Chat = () => {
         
         let username = params.username 
         //Append the received and sent messages to the page 
-        socket.on('customer '+ username, (msg) => {
-                                                    
-                                            showMessage(msg)})                
+        socket.on('customer '+ username, (data) => { let sender = data.sender === username ? 'me' : 'admin'
+                                                     let message = data.message
+                                                     showMessage(sender, message)})                
        }
     )  
 
@@ -25,11 +25,13 @@ export const Chat = () => {
     const sendMessage =  (e) => {
           e.preventDefault()
 
-          let username = params.username          
+          let username = params.username 
+          let sender = params.username         
           let message = document.getElementById("input").value   
           //We send the message to the server, and the username to create a room. 
           socket.emit('chat message', { message: message,
-                                        username: username
+                                        username: username,
+                                        sender: sender
                                       })
           
          /* axios.post('http://localhost:5000/chat-messages', {message: message,
