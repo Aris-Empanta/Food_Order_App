@@ -23,6 +23,7 @@ export const NavBar = () => {
                     {menu.map( item => <li>
                                          <a href= { "#/" + item } onClick={pageRefresh}>{ item }</a>
                                        </li>)}
+                    <li><a href="#/chat">Live chat</a></li>
                 </ul>
           </div>)
 }
