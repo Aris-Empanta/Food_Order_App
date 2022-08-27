@@ -50,8 +50,8 @@ export const Chat = () => {
                        username: username
                      }
 
-          socket.emit('chat message', data)          
-          
+          socket.emit('chat message', data)
+                    
           axios.post('http://localhost:5000/chat-messages', data )
           showMessage("me", message)
         } 

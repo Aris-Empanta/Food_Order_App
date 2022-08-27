@@ -14,6 +14,7 @@ export const NavBar = () => {
         })        
     }, [setMenu])
 
+    //Below function refreshes the pages once we change route.
     const pageRefresh = () => {
         setTimeout(() => window.location.reload(), 1)
     }
