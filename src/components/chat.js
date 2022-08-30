@@ -5,14 +5,16 @@ import { showMessage } from "../functions/chat";
 import {useParams} from 'react-router-dom';
 import axios from 'axios'
 
+//Initializing socket.io and url's parameter name object.
+export const socket = io(`http://localhost:5001`);
+
 //The dynamically created component we are redirected to when we enter our username to chat with admin.
 export const Chat = () => {    
     
     //The state needed
     const [messagesHistory, setMessagesHistory ] = useState([])
 
-    //Initializing socket.io and url's parameter name object.
-    const socket = io(`http://localhost:5000`);
+    
     const params = useParams() 
 
     useEffect( () => {
@@ -21,18 +23,22 @@ export const Chat = () => {
 
                         //Fetching all the old messages to be displayed.
                         axios.get('http://localhost:5000/chat-messages')
-                            .then(res =>  { 
-                                            let messages = res.data.filter(item => item.Customer === customer)
-                                            if(messagesHistory.length !== messages.length) setMessagesHistory(messages)
-                                            })
-                                                                                    
+                             .then(res =>  { 
+                                              let messages = res.data.filter(item => item.Customer === customer)
+                                              if(messagesHistory.length !== messages.length) setMessagesHistory(messages)
+                                              })
+                             .catch((err) => console.log(err))                                                                                   
                         
                         //Handling the socket.io event that will send us a message from a specific customer and displaying it.
                         socket.on('customer '+ customer, (data) => { let sender = data.sender === customer? 'me' : 'admin'
                                                                     let message = data.message
-                                                                    if(data.sender === 'admin') showMessage(sender, message)
-                                                                    console.log(0)
-                                                                    })                
+                                                                    if(data.sender === 'admin') showMessage(sender, message)                                                                   
+                                                                    })      
+                                                                    
+                      //We disconnect the socket, otherwise side effects like double messages wil occur                           
+                      return () => {
+                        socket.disconnect()
+                    }
                     }, [])  
 
  
@@ -51,8 +57,6 @@ export const Chat = () => {
                      }
 
           socket.emit('chat message', data)
-                    
-          axios.post('http://localhost:5000/chat-messages', data )
           showMessage("me", message)
         } 
 

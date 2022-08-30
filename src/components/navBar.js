@@ -25,6 +25,7 @@ export const NavBar = () => {
                                          <a href= { "#/" + item } onClick={pageRefresh}>{ item }</a>
                                        </li>)}
                     <li><a href="#/chat">Live chat</a></li>
+                    <li><a href="#/shopping-cart">Shopping cart</a></li>
                 </ul>
           </div>)
 }
