@@ -32,13 +32,10 @@ export const Chat = () => {
                         //Handling the socket.io event that will send us a message from a specific customer and displaying it.
                         socket.on('customer '+ customer, (data) => { let sender = data.sender === customer? 'me' : 'admin'
                                                                     let message = data.message
-                                                                    if(data.sender === 'admin') showMessage(sender, message)                                                                   
+                                                                    if(data.sender === 'admin') showMessage(sender, message)        
+                                                                    window.scrollTo(0, document.body.scrollHeight);                                                           
                                                                     })      
-                                                                    
-                      //We disconnect the socket, otherwise side effects like double messages wil occur                           
-                      return () => {
-                        socket.disconnect()
-                    }
+                       
                     }, [])  
 
  
@@ -46,7 +43,8 @@ export const Chat = () => {
       saving it in the database and displaying it.*/
     const sendMessage =  (e) => {
           e.preventDefault()
-          
+
+          let inputMessage = document.getElementById("input")
           let username = params.username 
           let sender = params.username         
           let message = document.getElementById("input").value   
@@ -54,10 +52,15 @@ export const Chat = () => {
           let data = { sender: sender,
                        message: message,
                        username: username
-                     }
+                     } 
 
-          socket.emit('chat message', data)
-          showMessage("me", message)
+          if (inputMessage.value) {
+
+              socket.emit('chat message', data)              
+              showMessage("me", message)
+              inputMessage.value = '';
+              window.scrollTo(0, document.body.scrollHeight);
+            }
         } 
 
     return(<div className="chat">
