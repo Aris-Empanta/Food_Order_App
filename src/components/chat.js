@@ -16,10 +16,11 @@ export const Chat = () => {
 
     
     const params = useParams() 
-
+  
     useEffect( () => {
                         //Holding customer's name from url in a variable.
                         let customer = params.username 
+                        let userType = document.getElementById("userTyping") 
 
                         //Fetching all the old messages to be displayed.
                         axios.get('http://localhost:5000/chat-messages')
@@ -34,10 +35,21 @@ export const Chat = () => {
                                                                     let message = data.message
                                                                     if(data.sender === 'admin') showMessage(sender, message)        
                                                                     window.scrollTo(0, document.body.scrollHeight);                                                           
-                                                                    })      
-                       
-                    }, [])  
+                                                                    })     
+                        //below listeners notify if admin is typing or not
+                        socket.on('Admin typing to ' + customer, () => userType.style.display = 'initial')
 
+                        socket.on('Admin not typing to ' + customer, () => userType.style.display = 'none')
+                    }, [])  
+    
+    //The function that send notification to the admin that a specific customer is typing 
+    const userTyping = () => {
+
+      let customer = params.username 
+      let inputValue = document.getElementById('input').value
+
+      inputValue === ''? socket.emit('No typing', customer ) : socket.emit('I type', customer )     
+    }
  
     /*The function to send a message to the admin in real time,
       saving it in the database and displaying it.*/
@@ -67,8 +79,9 @@ export const Chat = () => {
                 <ul id="messages">
                     { messagesHistory.map( item => <li>{(item.Sender === "admin"? "admin" : "me") + ": " + item.Message}</li>) } 
                 </ul>
+                <div id="userTyping">Admin is typing...</div>
                 <form id="form" action="" onSubmit={ sendMessage } >
-                    <input id="input" /><button>Send</button>
+                    <input id="input" onChange={ userTyping }/><button>Send</button>
                 </form>
            </div>)
 }
