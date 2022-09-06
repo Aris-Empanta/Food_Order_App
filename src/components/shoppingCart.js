@@ -3,14 +3,14 @@ import { socket } from "./chat"
 import { useSelector, useDispatch } from "react-redux"
 import { clearCart } from "../redux/slice";
 import { useEffect, useState } from "react";
-import axios from "axios";
+
 
 export const ShoppingCart = () => {
     
     const [localCart, setLocalCart ] = useState([])
     
     //The apis to access and edit the cart state from redux toolkit store
-    const cart = useSelector((state) => state.cart.value)    
+    const cart = useSelector((state) => state.customer.cart)    
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -24,9 +24,7 @@ export const ShoppingCart = () => {
     const sendOrder = () => {
 
         socket.emit('send order', 'pizza')        
-    }
-
-    
+    }  
 
     return(<div className="shoppingCart">
                 {localCart.map((item) => <div>

@@ -15,8 +15,8 @@ const persistedReducer = persistReducer(persistConfig, cartReducer)
 
 export const store = configureStore({
   reducer: {
-    cart: persistedReducer,
-  },
+    customer: persistedReducer,
+  }, 
   middleware: [thunk]
 })
 

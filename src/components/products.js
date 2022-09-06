@@ -1,5 +1,5 @@
-import axios from "axios"
-import { useEffect, useState } from "react";
+import { fetchProducts } from "../redux/slice";
+import { useEffect } from "react";
 import {useParams} from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux'
 import { addToCart } from "../redux/slice";
@@ -7,29 +7,34 @@ import "../css/products.css"
 
 export const Products = () => {
 
-    const [products, setProducts] = useState([])
-    
-
-    //We need the useParams hook, to fetch the data from the url so that we render the component accordingly. 
+    //We need the useParams hook, to fetch the data from the url so that
+    // we render the component accordingly. 
     const params = useParams();
 
     //The api to edit the redux store for the shopping cart    
     const dispatch = useDispatch()
-
+    const store = useSelector((state) => state.customer.products)
+    
+    
     useEffect(() => {
-
-        axios.get("http://localhost:5000/products/by-category/" + params.products).then((res) => {
-
-            
-            setProducts( res.data )
-        }) 
-
         
-      
+        const obviousProducts = document.getElementsByClassName(params.products) 
+
+        // We fetch all products from database and set the global redux
+        //store accordingly.
+        dispatch(fetchProducts())
+
+        // We let only products with category attribute same as the url
+        //parameter to be displayed.
+        for( let i=0; i < obviousProducts.length; i++) {
+
+            obviousProducts[i].style.display = 'initial'
+        }
+
     }, [])
 
     return(<div className="products">
-               {products.map(item => <div className="product">
+               {store.map(item => <div className={item.Category + " product"}>
                                              <img className="productImage" src= { item.Image_name} />
                                              <p> { item.Name } </p> 
                                              <p> { item.Description } </p>

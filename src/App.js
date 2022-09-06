@@ -6,10 +6,8 @@ import { Chat } from './components/chat';
 import { EnterChat } from './components/enterChat';
 import { ShoppingCart } from './components/shoppingCart';
 
-
 const App = () => {
 
-  
 
   return (<div>
             <NavBar />
