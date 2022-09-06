@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 export const NavBar = () => {
 
     const [menu, setMenu] = useState([])
-        
+          
     // The menu routes are set depending the product categories we fetch
     //from the database.
     useEffect(() => {

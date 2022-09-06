@@ -9,7 +9,7 @@ export const Products = () => {
 
     //We need the useParams hook, to fetch the data from the url so that
     // we render the component accordingly. 
-    const params = useParams();
+    const params = useParams(); 
 
     //The api to edit the redux store for the shopping cart    
     const dispatch = useDispatch()

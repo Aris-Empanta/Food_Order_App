@@ -31,18 +31,25 @@ export const cartSlice = createSlice({
         addToCart : (state, action) => {
                 state.cart.push(action.payload)
         },
-        removeOneProduct : (state, action) => {
+        decreaseByOne : (state, action) => {
 
             let cart = state.cart
             let id = action.payload
+            let index = cart.findIndex(item => item.id === id)
 
-            for( let i=0; i < cart.length; i++ ) {
-                 if(cart[i].id === id) {
-                     cart = cart.slice(0,i).concat(cart.slice(i, cart.length -1))
-                 }
-                 console.log(cart)
-                 break;
-            }
+            //Decreasing the amount of a specific product on cart by 1.
+            let newCart = cart.slice(0, index).concat(cart.slice(index + 1, cart.length))
+            //The updated cart
+            state.cart = [...newCart]          
+        },
+        removeProduct : (state, action) => {
+
+            let id = action.payload
+            let cart = state.cart
+
+            let newCart = cart.filter( item => item.id !== id)
+
+            state.cart = [...newCart]
         },
         clearCart : (state) => {
           state.cart = []
@@ -58,7 +65,7 @@ export const cartSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { addToCart, clearCart, removeOneProduct } = cartSlice.actions
+export const { addToCart, clearCart, decreaseByOne, removeProduct } = cartSlice.actions
 
 
 //export the reducer generates
