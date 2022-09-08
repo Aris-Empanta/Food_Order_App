@@ -8,6 +8,7 @@ const GET_PRODUCTS = "http://localhost:5000/products"
 const initialState = {
   products: [], 
   cart: [],
+  cartSubmitted: false,
 }
 
 //  The function to fetch all products from our database and set the
@@ -54,7 +55,11 @@ export const cartSlice = createSlice({
         clearCart : (state) => {
           state.cart = []
         },
+        submitCart : (state) => {
 
+            state.cartSubmitted === false ? state.cartSubmitted = true :
+                                            state.cartSubmitted = false
+        }
     },
     extraReducers(builder) {
       builder.addCase(fetchProducts.fulfilled, (state, action) => {
@@ -65,7 +70,11 @@ export const cartSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { addToCart, clearCart, decreaseByOne, removeProduct } = cartSlice.actions
+export const { addToCart, 
+               clearCart, 
+               decreaseByOne, 
+               removeProduct, 
+               submitCart } = cartSlice.actions
 
 
 //export the reducer generates

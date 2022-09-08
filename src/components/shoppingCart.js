@@ -1,8 +1,13 @@
 import "../css/shoppingCart.css"
 import { socket } from "./chat"
 import { useSelector, useDispatch } from "react-redux"
-import { clearCart, addToCart, decreaseByOne, removeProduct } from "../redux/slice";
+import { clearCart, 
+         addToCart, 
+         decreaseByOne, 
+         removeProduct,
+         submitCart } from "../redux/slice";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 export const ShoppingCart = () => {
@@ -10,8 +15,10 @@ export const ShoppingCart = () => {
     const [localCart, setLocalCart ] = useState([])
     
     //The apis to access and edit the cart state from redux toolkit store
-    const cart = useSelector((state) => state.customer.cart)    
+    const cart = useSelector((state) => state.customer.cart)   
+    const cartSubmitted = useSelector( state => state.customer.cartSubmitted ) 
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     useEffect(() => {
       
@@ -51,6 +58,8 @@ export const ShoppingCart = () => {
     //The function to send the cart order to the server in real time.
     const sendOrder = () => {
 
+      dispatch(submitCart())
+      navigate("./customer-info", { replace: true} )
       socket.emit('send order', 'pizza')        
   } 
 
@@ -69,6 +78,6 @@ export const ShoppingCart = () => {
                                             <button onClick = { () => removeItem(item.id)}>Delete</button>
                                          </div>                      )}
                 <button onClick={ sendOrder }>send order</button>
-                <button onClick={ clearLocalCart } >Clear cart</button>
+                <button onClick={ clearLocalCart } >Clear cart</button>                
            </div>)
 }
