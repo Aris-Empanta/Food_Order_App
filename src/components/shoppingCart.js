@@ -16,7 +16,6 @@ export const ShoppingCart = () => {
     
     //The apis to access and edit the cart state from redux toolkit store
     const cart = useSelector((state) => state.customer.cart)   
-    const cartSubmitted = useSelector( state => state.customer.cartSubmitted ) 
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
@@ -55,12 +54,13 @@ export const ShoppingCart = () => {
       //Updating redux global cart
       dispatch(removeProduct(id))
     }
+    
     //The function to send the cart order to the server in real time.
     const sendOrder = () => {
 
       dispatch(submitCart())
-      navigate("./customer-info", { replace: true} )
-      socket.emit('send order', 'pizza')        
+      //Redirect to the next component
+      navigate("./customer-info", { replace: true} )       
   } 
 
     return(<div className="shoppingCart">

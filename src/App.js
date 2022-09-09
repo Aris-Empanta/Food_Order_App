@@ -8,11 +8,13 @@ import { ShoppingCart } from './components/shoppingCart';
 import { CustomerInfo } from './components/customerInfo';
 import { PageNotFound } from './components/pageNotFound';
 import { useSelector } from 'react-redux';
+import { VerifyPurchase } from './components/verifyPurchase';
 
 
 const App = () => {
 
   const cartSubmitted = useSelector( state => state.customer.cartSubmitted )
+  const gotVerificationCode = useSelector( state => state.customer.gotVerificationCode )
 
   return (<div>
             <NavBar />
@@ -22,7 +24,10 @@ const App = () => {
               <Route path="chat/:username" element={<Chat />} />
               <Route path="shopping-cart" element={<ShoppingCart />} />              
               <Route path="shopping-cart/customer-info" element={cartSubmitted === true ? <CustomerInfo /> :
-                                                                                          <PageNotFound />}/>            
+                                                                                          <PageNotFound />}/>      
+              <Route path="shopping-cart/customer-info/confirm-purchase" 
+                     element = {gotVerificationCode === true ? <VerifyPurchase /> :
+                                                               <PageNotFound /> } />      
             </Routes>
           </div>
   );
