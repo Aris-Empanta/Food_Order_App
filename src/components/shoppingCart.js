@@ -5,6 +5,7 @@ import { clearCart,
          addToCart, 
          decreaseByOne, 
          removeProduct,
+         setFinalCart,
          submitCart } from "../redux/slice";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -60,7 +61,21 @@ export const ShoppingCart = () => {
 
       dispatch(submitCart())
       //Redirect to the next component
-      navigate("./customer-info", { replace: true} )       
+      navigate("./customer-info", { replace: true} )    
+
+      
+      let finalCart = localCart.map( item => {
+                                                const modifiedCart = {}
+                                                
+                                                modifiedCart["id"] = item.id
+                                                modifiedCart["name"] = item.name                                                
+                                                modifiedCart["image"] = item.image
+                                                modifiedCart["quantity"] = cart.filter( value => value.id === item.id).length
+                                                modifiedCart["price"] = item.price * modifiedCart["quantity"]                                          
+
+                                                return modifiedCart
+                                              })
+      dispatch(setFinalCart(finalCart)) 
   } 
 
     return(<div className="shoppingCart">

@@ -8,9 +8,12 @@ const GET_PRODUCTS = "http://localhost:5000/products"
 const initialState = {
   products: [], 
   cart: [],
+  finalCart: [],
   cartSubmitted: false,
   verificationCode: 0,
-  gotVerificationCode: false
+  gotVerificationCode: false,
+  customerName: "",
+  email: ""
 }
 
 //  The function to fetch all products from our database and set the
@@ -62,9 +65,20 @@ export const cartSlice = createSlice({
             state.cartSubmitted === false ? state.cartSubmitted = true :
                                             state.cartSubmitted = false
         },
+        setFinalCart : (state, action) => {
+
+            state.finalCart = action.payload
+        },
         setVerificationCode: (state, action) => {
 
             state.verificationCode = action.payload
+        },
+        setCustomerName : (state, action) => {
+
+            state.customerName = action.payload
+        },
+        setEmail : (state, action) => {
+                state.email = action.payload
         },
         verifyPurchase : (state) => {
 
@@ -86,7 +100,10 @@ export const { addToCart,
                decreaseByOne, 
                removeProduct, 
                submitCart,
+               setFinalCart,
                setVerificationCode,
+               setEmail,
+               setCustomerName,
                verifyPurchase } = cartSlice.actions
 
 
