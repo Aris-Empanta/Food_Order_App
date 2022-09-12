@@ -1,10 +1,10 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { verifyPurchase,
-         setVerificationCode,
-         setEmail } from "../redux/slice"
+         setVerificationCode } from "../redux/slice"
 import axios from "axios"
 import "../css/verifyPurchase.css"
+import { socket } from "./chat"
 
 export const VerifyPurchase = () => {
 
@@ -16,25 +16,16 @@ export const VerifyPurchase = () => {
     useEffect(() => {
         
         //The confirmation code should last for only 5 minutes
-        setTimeout( () => dispatch(setVerificationCode(0)), 30000 )
-
+        //setTimeout( () => dispatch(setVerificationCode(0)), 300000 )
+        
         //The component should not be accesible except we submit for purchase
         return () => {
-            dispatch(verifyPurchase())
+            dispatch(verifyPurchase(false))
             dispatch(setVerificationCode(""))
         } 
-    }, [])
+    }, []) 
 
-    const submitCode = (e) => {
-        e.preventDefault()
-        //Input code should be the same data type as stored code
-        let code = parseInt(document.getElementById("code").value)
-
-        code === verificationCode ? alert('code correct') :
-                                    alert('code wrong')     
-    }
-
-    const getNewPassword = (e) => {
+    const getNewPassword = () => {
 
         //A random 6 figure number
         let verificationCode = 100000 * Math.floor(Math.random() * 10) +
@@ -51,6 +42,15 @@ export const VerifyPurchase = () => {
                                                           verificationCode: verificationCode
                                                         })
     }
+
+    const submitCode = (e) => {
+              e.preventDefault()
+              //Input code should be the same data type as stored code
+              let code = parseInt(document.getElementById("code").value)
+
+              code === verificationCode ? socket.emit("send order",cart) :
+                                          alert('code wrong')     
+          }
 
     return(<div className="verifyPurchase">
               <form>

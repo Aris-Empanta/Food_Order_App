@@ -60,10 +60,9 @@ export const cartSlice = createSlice({
         clearCart : (state) => {
           state.cart = []
         },
-        submitCart : (state) => {
+        submitCart : (state, action ) => {
 
-            state.cartSubmitted === false ? state.cartSubmitted = true :
-                                            state.cartSubmitted = false
+            state.cartSubmitted = action.payload
         },
         setFinalCart : (state, action) => {
 
@@ -80,10 +79,9 @@ export const cartSlice = createSlice({
         setEmail : (state, action) => {
                 state.email = action.payload
         },
-        verifyPurchase : (state) => {
+        verifyPurchase : (state, action) => {
 
-            state.gotVerificationCode === false ? state.gotVerificationCode = true :
-                                                  state.gotVerificationCode = false
+            state.gotVerificationCode = action.payload
         },
     },
     extraReducers(builder) {

@@ -59,7 +59,7 @@ export const ShoppingCart = () => {
     //The function to send the cart order to the server in real time.
     const sendOrder = () => {
 
-      dispatch(submitCart())
+      dispatch(submitCart(true))
       //Redirect to the next component
       navigate("./customer-info", { replace: true} )    
 
@@ -70,6 +70,7 @@ export const ShoppingCart = () => {
                                                 modifiedCart["id"] = item.id
                                                 modifiedCart["name"] = item.name                                                
                                                 modifiedCart["image"] = item.image
+                                                modifiedCart["checkedStatus"] = "unChecked"
                                                 modifiedCart["quantity"] = cart.filter( value => value.id === item.id).length
                                                 modifiedCart["price"] = item.price * modifiedCart["quantity"]                                          
 

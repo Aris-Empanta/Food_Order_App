@@ -21,7 +21,7 @@ export const CustomerInfo = () => {
 
       //The component should not be accesible except we submit for purchase
       return () => {
-        dispatch(submitCart())
+        dispatch(submitCart(false))
       }   
 
     })
@@ -33,18 +33,13 @@ export const CustomerInfo = () => {
       let name = document.getElementById("enterName").value
       let mail =  document.getElementById("enterEmail").value
 
-      //We add customer's name to the finalCart
+      //We add customer's name and mail to the finalCart
       let finalCart = cart.map( item => {
-                                          const modifiedCart = {}
+                                          item["customerName"] = name
+                                          item["customerMail"] = mail                                         
+                                          item["price"] = item.price * item["quantity"]
 
-                                          modifiedCart["customerName"] = name
-                                          modifiedCart["id"] = item.id
-                                          modifiedCart["name"] = item.name                                                
-                                          modifiedCart["image"] = item.image
-                                          modifiedCart["quantity"] = item.quantity
-                                          modifiedCart["price"] = item.price * modifiedCart["quantity"]
-
-                                          return modifiedCart
+                                          return item
                                         })
       
       //A random 6 figure number
@@ -60,7 +55,7 @@ export const CustomerInfo = () => {
       dispatch(setCustomerName(name))
       dispatch(setFinalCart(finalCart))
       //Receiving access to the component we will redirect
-      dispatch(verifyPurchase())
+      dispatch(verifyPurchase(true))
       //Redirect to the next component
       navigate("./confirm-purchase", { replace: true} )
 
