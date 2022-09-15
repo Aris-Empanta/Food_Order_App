@@ -1,6 +1,25 @@
-.custommerInfo {
+.customerInfoSection {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 200px;
+}
+
+.customerInfo {    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#customerForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#rememberMe {
+    display: flex;
 }
