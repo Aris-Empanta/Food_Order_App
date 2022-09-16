@@ -13,7 +13,9 @@ const initialState = {
   verificationCode: 0,
   gotVerificationCode: false,
   customerName: "",
-  email: ""
+  email: "",
+  comments: "",
+  customerIsRegistered: false,
 }
 
 //  The function to fetch all products from our database and set the
@@ -83,6 +85,14 @@ export const cartSlice = createSlice({
 
             state.gotVerificationCode = action.payload
         },
+        setComments : (state, action) => {
+
+            state.comments = action.payload
+        },
+        checkCustomerRegistered: (state, action) => {
+
+            state.customerIsRegistered= action.payload
+        }
     },
     extraReducers(builder) {
       builder.addCase(fetchProducts.fulfilled, (state, action) => {
@@ -102,7 +112,9 @@ export const { addToCart,
                setVerificationCode,
                setEmail,
                setCustomerName,
-               verifyPurchase } = cartSlice.actions
+               verifyPurchase,
+               setComments,
+               checkCustomerRegistered } = cartSlice.actions
 
 
 //export the reducer generates

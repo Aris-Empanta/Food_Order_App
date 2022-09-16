@@ -6,7 +6,6 @@ import { Chat } from './components/chat';
 import { EnterChat } from './components/enterChat';
 import { ShoppingCart } from './components/shoppingCart';
 import { CustomerInfo } from './components/customerInfo';
-import { PageNotFound } from './components/pageNotFound';
 import { useSelector } from 'react-redux';
 import { VerifyPurchase } from './components/verifyPurchase';
 
@@ -23,11 +22,9 @@ const App = () => {
               <Route path="chat" element={<EnterChat />}/>
               <Route path="chat/:username" element={<Chat />} />
               <Route path="shopping-cart" element={<ShoppingCart />} />              
-              <Route path="shopping-cart/customer-info" element={cartSubmitted === true ? <CustomerInfo /> :
-                                                                                          <PageNotFound />}/>      
+              <Route path="shopping-cart/customer-info" element={ <CustomerInfo /> }/>      
               <Route path="shopping-cart/customer-info/confirm-purchase" 
-                     element = {gotVerificationCode === true ? <VerifyPurchase /> :
-                                                               <PageNotFound /> } />      
+                     element = { <VerifyPurchase /> } />      
             </Routes>
           </div>
   );
