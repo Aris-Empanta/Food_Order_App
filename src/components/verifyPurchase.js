@@ -20,13 +20,13 @@ export const VerifyPurchase = () => {
     const dispatch = useDispatch()  
     const verificationCode = useSelector( state => state.customer.verificationCode)
     const email = useSelector( state => state.customer.email)
-    const name = useSelector( state => state.customer.customerName)
     const comments = useSelector( state => state.customer.comments)
     const cart = useSelector( state => state.customer.finalCart)
     const customerIsRegistered = useSelector( state => state.customer.customerIsRegistered)
 
     useEffect(() => {
-        
+
+              
       //The confirmation code should last for only 5 minutes
       setTimeout( () => dispatch(setVerificationCode(0)), 300000 )
       generateCaptcha(setCaptcha)
@@ -42,7 +42,7 @@ export const VerifyPurchase = () => {
                                                           modifiedCart["address"] = res.data.Address 
                                                           modifiedCart["floor"] = res.data.Floor
                                                           modifiedCart["phone"] = res.data.Phone  
-                                                          modifiedCart["customerName"] = name
+                                                          modifiedCart["customerName"] = res.data.Name
                                                           modifiedCart["customerMail"] = email                                                          
 
                                                           return modifiedCart                                                        

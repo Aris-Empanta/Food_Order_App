@@ -12,7 +12,7 @@ const initialState = {
   cartSubmitted: false,
   verificationCode: 0,
   gotVerificationCode: false,
-  customerName: "",
+  customerName: "", 
   email: "",
   comments: "",
   customerIsRegistered: false,

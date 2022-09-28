@@ -38,12 +38,12 @@ export const Products = () => {
                                              <img className="productImage" src= { item.Image_name} />
                                              <p> { item.Name } </p> 
                                              <p> { item.Description } </p>
-                                             <p> Price: { item.Delivery_price + " " + item.Currency}</p>
+                                             <p> Price: { item.Price + " " + item.Currency}</p>
                                              <button onClick={() => { dispatch(addToCart({
                                                                             id: item.ID,
                                                                             name: item.Name,
                                                                             image: item.Image_name,
-                                                                            price: item.Delivery_price,
+                                                                            price: item.Price,
                                                                             description: item.Description
                                                                         }))
                                                                       }}>Add to basket </button>

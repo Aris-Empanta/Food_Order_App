@@ -56,6 +56,7 @@ export const CustomerInfo = () => {
       if ( saveInfoPermission === true ) saveCustomerInfo(socket)
     }
 
+    //The function to fetch data of registered customer
     const handleRegisteredCustomer = () => {
 
       let mail =  document.getElementById("knownMail").value
