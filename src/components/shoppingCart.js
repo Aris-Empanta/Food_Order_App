@@ -72,6 +72,7 @@ export const ShoppingCart = () => {
                                                 modifiedCart["image"] = item.image
                                                 modifiedCart["checkedStatus"] = "unChecked"
                                                 modifiedCart["quantity"] = cart.filter( value => value.id === item.id).length
+                                                modifiedCart["unitPrice"] = item.price 
                                                 modifiedCart["price"] = item.price * modifiedCart["quantity"]                                          
 
                                                 return modifiedCart
