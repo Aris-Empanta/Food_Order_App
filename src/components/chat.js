@@ -6,7 +6,7 @@ import {useParams} from 'react-router-dom';
 import axios from 'axios'
 
 //Initializing socket.io and url's parameter name object.
-export const socket = io(`http://localhost:5001`);
+export const socket = io(`http://localhost:5000`);
 
 //The dynamically created component we are redirected to when we enter our username to chat with admin.
 export const Chat = () => {    
@@ -28,8 +28,9 @@ export const Chat = () => {
                                               let messages = res.data.filter(item => item.Customer === customer)
                                               if(messagesHistory.length !== messages.length) setMessagesHistory(messages)
                                               })
-                             .catch((err) => console.log(err))                                                                                   
+                             .catch((err) => console.log(err))     
                         
+                                                
                         //Handling the socket.io event that will send us a message from a specific customer and displaying it.
                         socket.on('customer '+ customer, (data) => { let sender = data.sender === customer? 'me' : 'admin'
                                                                     let message = data.message
@@ -40,6 +41,12 @@ export const Chat = () => {
                         socket.on('Admin typing to ' + customer, () => userType.style.display = 'initial')
 
                         socket.on('Admin not typing to ' + customer, () => userType.style.display = 'none')
+
+                        return () => {
+                          
+                          socket.off('customer '+ customer)
+                        }
+                        
                     }, [])  
     
     //The function that send notification to the admin that a specific customer is typing 
@@ -68,7 +75,8 @@ export const Chat = () => {
 
           if (inputMessage.value) {
 
-              socket.emit('chat message', data)              
+              socket.emit('chat message', data)     
+              socket.emit('No typing', sender )         
               showMessage("me", message)
               inputMessage.value = '';
               window.scrollTo(0, document.body.scrollHeight);
