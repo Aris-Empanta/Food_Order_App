@@ -20,6 +20,8 @@ export const CustomerInfo = () => {
     const dispatch = useDispatch()    
     const navigate = useNavigate()    
     const cart = useSelector( state => state.customer.finalCart )
+
+    useEffect(() => console.log(cart))
       
     // We send a verification code to the customer and 
     //store it in the redux store.

@@ -49,7 +49,7 @@ export const getFinalCart = (cart) => {
 
                                           modifiedCart["customerName"] = name
                                           modifiedCart["customerMail"] = mail                                         
-                                          modifiedCart["price"] = item.price * item["quantity"]
+                                          modifiedCart["price"] = item.price 
                                           modifiedCart["comments"] = comments
                                           modifiedCart["address"] = address 
                                           modifiedCart["floor"] = floor

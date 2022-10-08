@@ -25,7 +25,6 @@ export const VerifyPurchase = () => {
     const customerIsRegistered = useSelector( state => state.customer.customerIsRegistered)
 
     useEffect(() => {
-
               
       //The confirmation code should last for only 5 minutes
       setTimeout( () => dispatch(setVerificationCode(0)), 300000 )
