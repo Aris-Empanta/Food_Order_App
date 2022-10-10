@@ -38,12 +38,16 @@ export const NavBar = () => {
     }
 
     return(<div>
-                <ul id="menu">
+                <ul id="topNavbar">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#/chat">Live chat</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#/shopping-cart">Shopping cart</a></li>                    
+                </ul>
+                <ul id="menu"> 
                     {menu.map( item => <li>
                                          <a href= { "#/" + item } onClick={() => showProducts(item)}>{ item }</a>
                                        </li>)}
-                    <li><a href="#/chat">Live chat</a></li>
-                    <li><a href="#/shopping-cart">Shopping cart</a></li>
                 </ul>
           </div>)
 }

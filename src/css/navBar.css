@@ -1,6 +1,17 @@
+#topNavbar {
+    position: fixed;
+    width: 100%;
+    list-style: none;
+    height: 80px;
+    display: flex;
+    justify-content: space-around;  
+    align-items: center;
+}
+
 #menu {
     position: fixed;
     width: 100%;
+    margin-top: 80px;
     list-style: none;
     background-color: greenyellow;
     height: 80px;
