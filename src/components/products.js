@@ -36,17 +36,23 @@ export const Products = () => {
     return(<div className="products">
                {store.map(item => <div className={item.Category + " product"}>
                                              <img className="productImage" src= { item.Image_name} />
-                                             <p> { item.Name } </p> 
-                                             <p> { item.Description } </p>
-                                             <p> Price: { item.Price + " " + item.Currency}</p>
-                                             <button onClick={() => { dispatch(addToCart({
-                                                                            id: item.ID,
-                                                                            name: item.Name,
-                                                                            image: item.Image_name,
-                                                                            price: item.Price,
-                                                                            description: item.Description
-                                                                        }))
-                                                                      }}>Add to basket </button>
+                                             <p className="productName"> { item.Name } </p> 
+                                             <p className="productDescription"> { item.Description } </p>
+                                          
+                                             <div className="priceAndCart"> 
+                                                <p className="productPrice">{ item.Price + " " + item.Currency} </p>
+                                                <span>
+                                                    <button className="cartButton"
+                                                            onClick={() => { dispatch(addToCart({
+                                                                                    id: item.ID,
+                                                                                    name: item.Name,
+                                                                                    image: item.Image_name,
+                                                                                    price: item.Price,
+                                                                                    description: item.Description }))
+                                                                            }}>Add to cart
+                                                    </button>
+                                                </span>
+                                             </div>
                                      </div>)}
           </div>)
 }
