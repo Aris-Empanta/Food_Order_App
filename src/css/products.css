@@ -1,9 +1,9 @@
 .products {
-    margin-top: 100px;
     display: flex;
     justify-content: space-around;    
-    height: 100vh;
-}
+    margin-top: 20px;
+    flex-wrap: wrap;
+} 
 
 .product {
     display: none;

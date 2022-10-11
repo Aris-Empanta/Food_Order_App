@@ -2,21 +2,79 @@
     position: fixed;
     width: 100%;
     list-style: none;
-    height: 80px;
+    height: 90px;
     display: flex;
     justify-content: space-around;  
     align-items: center;
+    background-color: aquamarine;
+    top: 0;
 }
 
-#menu {
-    position: fixed;
+.largeScreenLinks {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+#topNavbar a {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;    
+}
+
+#navbarHome {
+    padding-left: 10%;
+    padding-right: auto;
+    width: 40%;
+}
+
+#shoppingCart {
+    font-size: 1.5rem;
+}
+
+#menu {    
     width: 100%;
     margin-top: 80px;
     list-style: none;
-    background-color: greenyellow;
-    height: 80px;
+    background-color: coral;    
     display: flex;
-    justify-content: space-around;  
+    justify-content: space-evenly;
+    flex-wrap: wrap;
     align-items: center; 
-    top: 0; 
+}
+
+#menu li {
+    margin: 30px 5% 30px 5%;
+}
+
+#menu a {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;  
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.smallScreenLinks {
+    display: none;
+}
+
+@media screen and (max-width: 770px) {
+
+    #topNavbar {
+        justify-content: space-between;
+        padding-right: 5%;
+        padding-left: 5%;
+    }
+
+    .largeScreenLinks {
+        display: none;
+    }
+
+    .smallScreenLinks {
+        display: initial;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;   
+        font-size: 1.5rem;
+    }
 }

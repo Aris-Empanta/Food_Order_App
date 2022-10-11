@@ -1,6 +1,10 @@
 import "../css/navBar.css"
 import axios from "axios"
 import { useEffect, useState } from "react"
+import { showProducts } from "../functions/navbar"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { faBars } from "@fortawesome/free-solid-svg-icons"
 
 export const NavBar = () => {
 
@@ -16,38 +20,37 @@ export const NavBar = () => {
         })        
         
     }, [setMenu])
-
-    // Below function shows only products with the same category name as the
-    //url parameter, and hides the rest, once we click a certain route.
-    const showProducts = (category) => {
-
-        const obviousProducts = document.getElementsByClassName(category) 
-        const allProducts = document.getElementsByClassName('product')
-
-        //Hides all products
-        for( let i=0; i < allProducts.length; i++) {
-
-            allProducts[i].style.display = 'none'
-        }
-
-        //Show only the desirable ones
-        for( let i=0; i < obviousProducts.length; i++) {
-
-            obviousProducts[i].style.display = 'initial'
-        }
-    }
+    
 
     return(<div>
-                <ul id="topNavbar">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#/chat">Live chat</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#/shopping-cart">Shopping cart</a></li>                    
-                </ul>
-                <ul id="menu"> 
-                    {menu.map( item => <li>
-                                         <a href= { "#/" + item } onClick={() => showProducts(item)}>{ item }</a>
-                                       </li>)}
-                </ul>
+             <ul id="topNavbar">
+                <li id="navbarHome" className="largeScreenLinks">
+                    <a href="#">Home</a>
+                </li>
+                <li className="largeScreenLinks">
+                    <a href="#/chat">Live chat</a>
+                </li>
+                <li className="largeScreenLinks">
+                    <a href="#">Contact</a>
+                </li>
+                <li className="smallScreenLinks">
+                    <a href="#">
+                        <FontAwesomeIcon icon={ faBars }  />
+                    </a>
+                </li>
+                <li className="smallScreenLinks">
+                    <a href="#">Home</a>
+                </li>
+                <li id="shoppingCart" className="navbarFonts">
+                    <a href="#/shopping-cart" >
+                        <FontAwesomeIcon icon={ faShoppingCart }  />
+                    </a>
+                </li>                    
+             </ul>
+             <ul id="menu"> 
+                {menu.map( item => <li>
+                                       <a href= { "#/" + item } onClick={() => showProducts(item)}>{ item }</a>
+                                   </li>)}
+             </ul>
           </div>)
 }
