@@ -30,9 +30,6 @@ export const NavBar = () => {
                 <li className="largeScreenLinks">
                     <a href="#/chat">Live chat</a>
                 </li>
-                <li className="largeScreenLinks">
-                    <a href="#">Contact</a>
-                </li>
                 <li className="smallScreenLinks">
                     <a href="#">
                         <FontAwesomeIcon icon={ faBars }  />
