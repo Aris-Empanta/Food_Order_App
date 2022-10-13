@@ -2,12 +2,22 @@
     position: fixed;
     width: 100%;
     list-style: none;
-    height: 90px;
+    height: 80px;
     display: flex;
     justify-content: space-around;  
     align-items: center;
     background-color: aquamarine;
     top: 0;
+}
+
+#smallScreenNavbar {
+    display: none;
+}
+
+#barsButton {
+    font-size: 1.6rem;
+    background-color: transparent;
+    border: none;
 }
 
 .largeScreenLinks {
@@ -61,6 +71,28 @@
 }
 
 @media screen and (max-width: 770px) {
+
+    #smallScreenNavbar {
+        display: flex;
+        background-color: white;
+        padding: 25px;
+        padding-bottom: 40px;
+        gap: 25px;
+        position: fixed;
+        flex-direction: column;
+        width: 100%;
+        list-style: none;
+        transform: translateX(-100%);
+        transition: transform 1s;
+    }
+
+    
+    #smallScreenNavbar a {
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;  
+        font-size: 1.2rem;
+        text-decoration: none;
+        color: black;
+    }
 
     #topNavbar {
         justify-content: space-between;

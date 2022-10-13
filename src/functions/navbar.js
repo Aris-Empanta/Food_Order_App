@@ -17,3 +17,12 @@ export const showProducts = (category) => {
         obviousProducts[i].style.display = 'initial'
     }
 }
+
+export const showNavbar = () => {
+
+    let navbar = document.getElementById("smallScreenNavbar")
+
+    navbar.style.transform === "translateX(-100%)" ? 
+    navbar.style.transform = "translateX(0)" : 
+    navbar.style.transform = "translateX(-100%)"
+}
