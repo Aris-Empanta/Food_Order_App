@@ -1,8 +1,11 @@
 import { fetchProducts } from "../redux/slice";
 import { useEffect } from "react";
 import {useParams} from 'react-router-dom';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAnglesUp } from "@fortawesome/free-solid-svg-icons";
 import { useSelector, useDispatch } from 'react-redux'
 import { addToCart } from "../redux/slice";
+import { scrollUp, showScrollUp } from "../functions/products";
 import "../css/products.css"
 
 export const Products = () => {
@@ -10,6 +13,10 @@ export const Products = () => {
     //We need the useParams hook, to fetch the data from the url so that
     // we render the component accordingly. 
     const params = useParams(); 
+
+    /*With below listener, the scrollUp button will appear whenever
+    the scrolling distance from top is more than 0*/
+    window.addEventListener("scroll", showScrollUp)
 
     //The api to edit the redux store for the shopping cart    
     const dispatch = useDispatch()
@@ -19,6 +26,8 @@ export const Products = () => {
     useEffect(() => {
         
         const obviousProducts = document.getElementsByClassName(params.products) 
+
+        window.scrollTo(0,0)
 
         // We fetch all products from database and set the global redux
         //store accordingly.
@@ -54,5 +63,8 @@ export const Products = () => {
                                                 </span>
                                              </div>
                                      </div>)}
+                <button class="scrollUp" onClick={ scrollUp } >
+                    < FontAwesomeIcon icon={ faAnglesUp } />
+                </button>
           </div>)
 }

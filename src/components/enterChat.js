@@ -1,9 +1,11 @@
 import "../css/enterChat.css"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 export const EnterChat = () => {
 
     const [username, setUsername] = useState("")
+
+    useEffect(() => window.scrollTo(0,0))
 
     //The function to enter the chat with your username
     const enterChat = (e) => {

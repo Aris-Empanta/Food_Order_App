@@ -1,32 +1,130 @@
 .chat {
-    margin-top: 200px;
+    margin-top: 60px; 
 }
 
 .chat ul li {
-    padding: 30px;
-    font-size: 1.5rem;
+    padding: 25px;
 }
 
-#form { background: rgba(0, 0, 0, 0.15); 
-        padding: 0.25rem; position: fixed; 
-        bottom: 0; 
-        left: 200px;
-        right: 0; 
-        display: flex; 
-        height: 3rem; 
-        box-sizing: border-box;
-      }
+#messages {
+    margin-bottom: 100px;
+}
 
-      #userTyping {
+.messageInfoWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 0 40% 35px 3%;
+    border-radius: 50px;
+    background-color: #D8BFD8;
+}
+ 
+.colorOfadmin {
+    background-color: #c9a0dc;
+    margin: 0 3% 35px 40%;
+}
+
+.senderAndDate {
+    display: flex;
+}
+
+.sendDate {
+    margin-right: 10px;
+    margin-left: auto;
+    font-size: 1.2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #404040;
+}
+
+.senderName {
+    font-size: 1.2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #404040;
+}
+
+.messageTextWrapper {
+    display: flex;
+    width: 95%;
+    flex-wrap: wrap;
+}
+
+.messageText {
+    font-size: 1.4rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #101010;
+    max-width: 100%;
+    overflow-wrap: break-word;
+}
+
+#userTyping {
+    position: fixed; 
+    bottom: 60px; 
+    left: auto;
+    right: 20px;
+    display: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+}
+
+#form { background: #dda0dd; 
+        padding: 0.3rem; 
         position: fixed; 
-        bottom: 60px; 
-        left: 220px;
-        display: none;
-    }
+        bottom: 0; 
+        width: 100%;
+        display: flex; 
+        height: 4rem; 
+        box-sizing: border-box;
+  }
 
 #input { border: none; 
-         padding: 0 1rem; 
-         flex-grow: 1; 
-         border-radius: 2rem; 
-         margin: 0.25rem; 
-        }
+        padding: 0 1rem 0 1rem; 
+        flex-grow: 1; 
+        border-radius: 2rem 0 0 2rem; 
+        margin: 0.3rem; 
+        margin-right: 0;
+        font-size: 1.3rem;
+        } 
+
+#input:focus {
+    outline: none;
+}        
+
+#sendButton {
+    cursor: pointer;
+    border-radius: 0 5px 5px 0; 
+    padding: 4px 12px 4px 10px;
+    font-size: 1.2rem;
+    border: none;
+    background: linear-gradient( to bottom right, rgb(64, 84, 178), rgb(219, 2, 234));
+    color: white;
+    margin: 0.3rem 0.3rem 0.3rem 0; 
+}
+
+
+@media screen and (max-width: 770px)  {
+
+    .sendDate {
+        font-size: 1rem;
+    }
+
+    .senderName {
+        font-size: 1rem;
+    }
+
+    .messageText {
+        font-size: 1.2rem; 
+    }
+
+    .messageInfoWrapper {
+        width: 90%;
+        margin: 0 0 35px 5%;
+    }
+
+    #userTyping {
+        font-size: 1rem;
+    }
+
+    #input {
+        width: 80%;
+    }
+}

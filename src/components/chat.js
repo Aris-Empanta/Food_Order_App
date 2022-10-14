@@ -1,8 +1,11 @@
 import "../css/chat.css"
 import io from 'socket.io-client';
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
+import useStateWithCallback from 'use-state-with-callback';
 import { showMessage } from "../functions/chat";
 import {useParams} from 'react-router-dom';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faPaperPlane } from "@fortawesome/free-regular-svg-icons"
 import axios from 'axios'
 
 //Initializing socket.io and url's parameter name object.
@@ -12,7 +15,7 @@ export const socket = io(`http://localhost:5000`);
 export const Chat = () => {    
     
     //The state needed
-    const [messagesHistory, setMessagesHistory ] = useState([])
+    const [messagesHistory, setMessagesHistory ] = useStateWithCallback([], () => window.scrollTo(0, document.body.scrollHeight) )
 
     
     const params = useParams() 
@@ -33,9 +36,12 @@ export const Chat = () => {
                                                 
                         //Handling the socket.io event that will send us a message from a specific customer and displaying it.
                         socket.on('customer '+ customer, (data) => { let sender = data.sender === customer? 'me' : 'admin'
-                                                                    let message = data.message
-                                                                    if(data.sender === 'admin') showMessage(sender, message)        
-                                                                    window.scrollTo(0, document.body.scrollHeight);                                                           
+                                                                     let message = data.message
+                                                                     let date = data.date
+
+                                                                     data.sender === 'admin' ? showMessage('admin', message, date ) :
+                                                                                               showMessage('me', message, date )
+                                                                     window.scrollTo(0, document.body.scrollHeight);                                                           
                                                                     })     
                         //below listeners notify if admin is typing or not
                         socket.on('Admin typing to ' + customer, () => userType.style.display = 'initial')
@@ -77,7 +83,6 @@ export const Chat = () => {
 
               socket.emit('chat message', data)     
               socket.emit('No typing', sender )         
-              showMessage("me", message)
               inputMessage.value = '';
               window.scrollTo(0, document.body.scrollHeight);
             }
@@ -85,11 +90,22 @@ export const Chat = () => {
 
     return(<div className="chat">
                 <ul id="messages">
-                    { messagesHistory.map( item => <li>{(item.Sender === "admin"? "admin" : "me") + ": " + item.Message}</li>) } 
+                    { messagesHistory.map( item =>  <li className={"messageInfoWrapper colorOf"+ item.Sender}>
+                                                      <div className="senderAndDate">
+                                                        <p className="senderName">{(item.Sender === "admin" ? "admin" : "me")}</p>
+                                                        <p className="sendDate">{item.dateReceived}</p>
+                                                      </div>
+                                                      <div className="messageTextWrapper">
+                                                        <p className="messageText">&nbsp;{item.Message}</p>
+                                                      </div>
+                                                    </li>) } 
                 </ul>
                 <div id="userTyping">Admin is typing...</div>
                 <form id="form" action="" onSubmit={ sendMessage } >
-                    <input id="input" onChange={ userTyping }/><button>Send</button>
+                    <input id="input" onChange={ userTyping }/>
+                    <button id="sendButton">
+                      <FontAwesomeIcon icon={ faPaperPlane } />
+                    </button>
                 </form>
-           </div>)
+           </div>) 
 }
