@@ -18,6 +18,7 @@
     font-size: 1.6rem;
     background-color: transparent;
     border: none;
+    cursor: pointer;
 }
 
 .largeScreenLinks {
@@ -40,6 +41,31 @@
 
 #shoppingCart {
     font-size: 1.5rem;
+}
+
+#cartIcon {
+    position: relative;
+}
+
+#cartAmountWrapper {
+    position: absolute;    
+    left: 18px;
+    right: auto;
+    bottom: 18px;
+    top: auto;
+    border-radius: 50%;
+    width: auto;
+    height:auto;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8% 20% 8% 20%;
+}
+
+#cartAmount {
+    font-size: 0.9rem;
+    color: white;
 }
 
 #menu {    
@@ -77,13 +103,14 @@
         background-color: white;
         padding: 25px;
         padding-bottom: 40px;
+        align-items: center;
         gap: 25px;
         position: fixed;
         flex-direction: column;
         width: 100%;
         list-style: none;
         transform: translateX(-100%);
-        transition: transform 1s;
+        transition: transform 0.7s;
     }
 
     
@@ -96,8 +123,8 @@
 
     #topNavbar {
         justify-content: space-between;
-        padding-right: 5%;
-        padding-left: 5%;
+        padding-right: 10%;
+        padding-left: 7%;
     }
 
     .largeScreenLinks {

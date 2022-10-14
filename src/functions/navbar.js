@@ -18,11 +18,36 @@ export const showProducts = (category) => {
     }
 }
 
-export const showNavbar = () => {
+export const handleNavbar = () => {
+
+    let topNavbar = document.getElementById("topNavbar")
+    let lowerNavbar = document.getElementById("smallScreenNavbar")
+    let xMark = document.getElementById("xMarkIcon")
+    let barsIcon = document.getElementById("barsIcon")
+    
+
+    if( lowerNavbar.style.transform === "translateX(-100%)" ) { 
+
+          topNavbar.style.backgroundColor = "white"
+          lowerNavbar.style.transform = "translateX(0)" 
+          xMark.style.display = "initial"
+          barsIcon.style.display = "none"
+         } 
+    else {
+
+          topNavbar.style.backgroundColor = "aquamarine"
+          lowerNavbar.style.transform = "translateX(-100%)"
+          xMark.style.display = "none"
+          xMark.style.transform = "rotate(180deg)"
+          barsIcon.style.display = "initial"
+         }
+
+
+}
+
+export const hideNavbar = () => {
 
     let navbar = document.getElementById("smallScreenNavbar")
-
-    navbar.style.transform === "translateX(-100%)" ? 
-    navbar.style.transform = "translateX(0)" : 
-    navbar.style.transform = "translateX(-100%)"
+    
+    navbar.style.display = 'none'
 }
