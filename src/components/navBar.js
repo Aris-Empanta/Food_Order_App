@@ -2,8 +2,7 @@ import "../css/navBar.css"
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { showProducts, 
-         handleNavbar,
-         hideNavbar } from "../functions/navbar"
+         handleNavbar } from "../functions/navbar"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from 'react-redux'

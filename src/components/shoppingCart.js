@@ -1,5 +1,4 @@
 import "../css/shoppingCart.css"
-import { socket } from "./chat"
 import { useSelector, useDispatch } from "react-redux"
 import { clearCart, 
          addToCart, 
@@ -8,6 +7,10 @@ import { clearCart,
          setFinalCart,
          submitCart } from "../redux/slice";
 import { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faMinus } from "@fortawesome/free-solid-svg-icons";
+import { faTrash } from "@fortawesome/free-solid-svg-icons"
 import { useNavigate } from "react-router-dom";
 
 
@@ -81,20 +84,38 @@ export const ShoppingCart = () => {
   } 
 
     return(<div className="shoppingCart">
+              <div className="cartDetails">
                 {localCart.map((item) => <div className="cartProducts">
                                             <img className="cartImage" src={item.image} />
-                                            <p>{ item.name }</p>
-                                            <div>
-                                              <button onClick = { () => dispatch(addToCart(item)) }>Increase</button>
-                                              <p>Quantity : <span id={ item.id + " quantity"}>
-                                                                { cart.filter( value => value.id === item.id).length}
-                                                            </span>
-                                              </p>
-                                              <button onClick = { () => decreaseQuantity(item.id) }>Decrease</button>
+                                            <div className="nameAndDescription">
+                                              <p>{ item.name }</p>
+                                              <p>{item.description}</p>
                                             </div>
-                                            <button onClick = { () => removeItem(item.id)}>Delete</button>
+                                            <div className="controlQuantity" >
+                                              <button onClick = { () => dispatch(addToCart(item)) } 
+                                                      className="cartButtons" >
+                                                <FontAwesomeIcon icon={ faPlus } />
+                                              </button>
+                                              <div className="quantityBox">
+                                                <p id={ item.id + " quantity"}>
+                                                  { cart.filter( value => value.id === item.id).length}
+                                                </p> 
+                                              </div>                                             
+                                              <button onClick = { () => decreaseQuantity(item.id) }
+                                                      className="cartButtons" >
+                                                <FontAwesomeIcon icon={ faMinus } />
+                                              </button>
+                                            </div>
+                                            <button onClick = { () => removeItem(item.id)}
+                                                    className="cartButtons" >
+                                              <FontAwesomeIcon icon={ faTrash } />
+                                            </button>
                                          </div>                      )}
-                <button onClick={ sendOrder }>send order</button>
-                <button onClick={ clearLocalCart } >Clear cart</button>                
+                </div>                          
+                <div className="summarizeCart">
+
+                  <button onClick={ sendOrder }>send order</button>
+                  <button onClick={ clearLocalCart } >Clear cart</button>
+                </div>               
            </div>)
 }

@@ -1,11 +1,16 @@
 .shoppingCart {
-    height: 100vh;
+    display: flex;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+} 
+
+.cartDetails {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
-    margin-top: 100px;
+    gap: 20px;
 }
 
 .cartProducts {
@@ -13,6 +18,7 @@
     gap: 20px;
     border: 1px solid black;
     align-items: center;
+    padding: 10px;
 }
 
 .cartItem {
@@ -21,6 +27,34 @@
 }
 
 .cartImage {
-    width:200px;
-    height: 200px;
+    width:150px;
+    height: 150px;
+}
+
+.nameAndDescription {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    gap: 30px;
+    max-width: 200px;
+}
+
+.controlQuantity {
+    display: flex;
+}
+
+.quantityBox {
+    border: 1px solid black;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+    border-radius: 3px;
+}
+
+.cartButtons {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
 }
