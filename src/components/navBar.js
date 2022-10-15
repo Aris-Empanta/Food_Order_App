@@ -82,7 +82,7 @@ export const NavBar = () => {
                 </li>
              </ul>
              <ul id="menu"> 
-                {menu.map( item => <li>
+                {menu.map( item => <li className="individualProduct">
                                        <a href= { "#/" + item } onClick={() => showProducts(item)}>{ item }</a>
                                    </li>)}
              </ul>

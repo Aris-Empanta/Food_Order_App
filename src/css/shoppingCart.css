@@ -1,21 +1,28 @@
+.cartComponent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    margin-top: 50px;
+}
+
 .shoppingCart {
     display: flex;
-    margin-top: 100px;
     margin-bottom: 100px;
     justify-content: center;
     align-items: flex-start;
-    gap: 30px;
+    gap: 50px;
 } 
 
 .cartDetails {
     display: flex;
     flex-direction: column;
     gap: 20px;
-}
+} 
 
 .cartProducts {
     display: flex;
-    gap: 20px;
+    gap: 30px;
     border: 1px solid black;
     align-items: center;
     padding: 10px;
@@ -52,9 +59,103 @@
     border-radius: 3px;
 }
 
+.itemsName {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.itemsDescription {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.1rem;
+}
+ 
 .cartButtons {
     background-color: transparent;
     border: none;
     cursor: pointer;
     padding: 8px;
+    font-size: 1.3rem;
+}
+
+.summarizeCart {
+    display: flex;
+    flex-direction: column;    
+    gap: 40px;
+    padding: 15px;
+    border: 1px solid black;
+}
+
+#totalItemsWrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 150px;
+}
+
+#totalItems {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+}
+
+#itemsQuantity {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+}
+
+#totalPrice {
+    align-self: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+}
+
+#handleCartButtons {
+    display: flex;
+    justify-content: space-between;
+}
+
+#clearCart {
+    width: 48%;
+    height: 30px;
+    border-radius: 3px;
+    border: none;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    padding: 5px;
+    width: 48%;
+}
+
+#proceed {
+    cursor: pointer;
+    border-radius: 3px;
+    border: none;
+    background-color: yellowgreen;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    padding: 5px;
+    width: 48%;
+}
+
+@media (max-width: 550px) {
+    .shoppingCart {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cartProducts {
+        flex-direction: column;
+        justify-content: center;
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+}
+
+@media (min-width: 551px) and (max-width: 950px) {
+
+    .shoppingCart {
+        flex-direction: column;
+        align-items: center;
+    }
 }

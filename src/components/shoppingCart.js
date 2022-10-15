@@ -12,6 +12,7 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { faMinus } from "@fortawesome/free-solid-svg-icons";
 import { faTrash } from "@fortawesome/free-solid-svg-icons"
 import { useNavigate } from "react-router-dom";
+import { totalPrice, totalItems } from "../functions/cartFunctions";
 
 
 export const ShoppingCart = () => {
@@ -83,13 +84,15 @@ export const ShoppingCart = () => {
       dispatch(setFinalCart(finalCart)) 
   } 
 
-    return(<div className="shoppingCart">
+    return(<div className="cartComponent">
+            <h1>Shopping Cart</h1>
+            <div className="shoppingCart">
               <div className="cartDetails">
                 {localCart.map((item) => <div className="cartProducts">
                                             <img className="cartImage" src={item.image} />
                                             <div className="nameAndDescription">
-                                              <p>{ item.name }</p>
-                                              <p>{item.description}</p>
+                                              <p className="itemsName">{ item.name }</p>
+                                              <p className="itemsDescription">{item.description}</p>
                                             </div>
                                             <div className="controlQuantity" >
                                               <button onClick = { () => dispatch(addToCart(item)) } 
@@ -113,9 +116,16 @@ export const ShoppingCart = () => {
                                          </div>                      )}
                 </div>                          
                 <div className="summarizeCart">
-
-                  <button onClick={ sendOrder }>send order</button>
-                  <button onClick={ clearLocalCart } >Clear cart</button>
-                </div>               
+                  <div id="totalItemsWrapper">
+                    <p id="totalItems">Total items</p>
+                    <p id="itemsQuantity">{ totalItems(cart) }</p>
+                  </div>
+                  <p id="totalPrice">{ totalPrice(cart) }</p>
+                  <div id="handleCartButtons">
+                    <button onClick={ clearLocalCart } id="clearCart">Clear cart</button>
+                    <button onClick={ sendOrder } id="proceed">Proceed</button>                    
+                  </div>
+                </div>  
+              </div>             
            </div>)
 }

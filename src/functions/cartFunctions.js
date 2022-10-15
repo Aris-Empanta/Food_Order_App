@@ -1,3 +1,17 @@
+//The function to get the total items
+export const totalItems = (cart) => {
+
+        return cart.length === 1 ? cart.length + ' pc' :
+                                   cart.length + ' pcs'
+}
+
+//The function to calculate the total price of the cart
+export const totalPrice = (cart) => {
+
+        return cart.map( item => item.price )
+                   .reduce( (previous, current) => previous + current, 0)
+      }
+
 // The function that will send all the customer's
 //info to the database.
 export const saveCustomerInfo = (socket) => {

@@ -61,7 +61,7 @@
     max-width: 87%;
 }
 
-@media screen and (max-width: 380px) {
+@media (max-width: 380px) {
 
     #chatLabel {
         margin: 0;
