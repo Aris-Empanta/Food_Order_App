@@ -1,9 +1,9 @@
 .customerInfoSection {
-    height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 200px;
+    align-items: flex-start;
+    gap: 100px;
+    margin-top: 30px;
 }
 
 .customerInfo {    
@@ -11,15 +11,111 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 30px;
+}
+
+.formHeading {
+    font-size: 1.4rem;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 #customerForm {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    background-color: silver;
+    grid-template-areas: 'nameLabel addressLabel'
+                          'name address'
+                          'floorLabel phoneLabel' 
+                          'enterFloor enterPhone'
+                          'emailLabel emailLabel'
+                          'enterEmail enterEmail'
+                          ' commentsLabel  commentsLabel'
+                          'enterComments enterComments'
+                          'rememberMe rememberMe'
+                          'submitForPassword submitForPassword';
+    column-gap: 10px;
+    row-gap: 10px;
+    padding: 20px;
+}
+
+.labels {
+    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#nameLabel {
+    grid-area: nameLabel;
+}
+
+#addressLabel {
+    grid-area: addressLabel;
+}
+
+#enterName {
+    grid-area: name;
+}
+
+#enterAddress {
+    grid-area: address;
+}
+
+#floorLabel {
+    grid-area: floorLabel;
+}
+
+#phoneLabel {
+   grid-area: phoneLabel;
+}
+
+#enterFloor {
+    grid-area: enterFloor;
+}
+
+#enterPhone {
+    grid-area: enterPhone;
+}
+
+
+#emailLabel {
+    grid-area: emailLabel;
+}
+
+#commentsLabel {
+    grid-area: commentsLabel;
+}
+
+#enterEmail {
+    grid-area: enterEmail;
+}
+
+#enterComments {
+    grid-area: enterComments;
 }
 
 #rememberMe {
     display: flex;
+    grid-area: rememberMe;
+}
+
+#submitForPassword {
+    grid-area: submitForPassword;
+    width: 60%;
+    margin-left: 40%;
+}
+
+.registeredInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 400px;
+}
+
+.registeredForm {
+    display: flex;
+    flex-direction: column;
+    background-color: silver;
+    padding: 15px;
+}
+
+#submitRegistered {
+    margin-left: 40%;
 }
