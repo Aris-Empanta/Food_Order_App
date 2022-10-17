@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { verifyPurchase,
-         setVerificationCode, 
-         setFinalCart} from "../redux/slice"
+import { setVerificationCode, setFinalCart} from "../redux/slice"
 import axios from "axios"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faRefresh } from "@fortawesome/free-solid-svg-icons";
 import "../css/verifyPurchase.css"
 import { socket } from "./chat"
 import { grabUserCaptcha,
@@ -68,19 +68,35 @@ export const VerifyPurchase = () => {
           }
 
     return(<div className="verifyPurchase">
+              <h1 id="verificationTitle">Please Choose a verification method</h1>
               <form id="verifyForm">
-                <label>Please put the verification code you received in your email</label>
-                <input type="text" id="code"/>
-                <button onClick={ () => getNewPassword( dispatch,
-                                                        setVerificationCode,
-                                                        email,
-                                                        axios) }> Get new code </button>
-                <h1>Or...</h1>
-                <p>Type the characters bellow</p>
-                <p>{ captcha }</p>
-                <input type="text" id="userCaptcha" onChange={ () => grabUserCaptcha(setUserCaptcha) }/>
-                <button onClick={ () => generateCaptcha(setCaptcha) }>New</button>
-                <button type="submit" onClick={ sendOrder }>Confirm Purchase</button>                
+                <div id="mailAndCaptcha">
+                  <div id="mailCodeWrapper">
+                    <label className="verificationTitles">Enter the code you received in your email</label>
+                    <div id="mailInputWrapper">
+                      <input type="text" id="code"/>
+                      <button id="getNewCode"
+                              onClick={ () => getNewPassword( dispatch,
+                                                              setVerificationCode,
+                                                              email,
+                                                              axios) }> Get new code </button>
+                    </div>                    
+                  </div>
+                  <p id="or">or</p>
+                  <div id="captchaWrapper">
+                    <p className="verificationTitles">
+                      Type the characters bellow&nbsp;&nbsp;
+                      <input type="text" id="userCaptcha" onChange={ () => grabUserCaptcha(setUserCaptcha) }/>
+                    </p>
+                    <div id="captchaBox">
+                      <p id="captchaLetters">{ captcha }</p>                    
+                      <button onClick={ () => generateCaptcha(setCaptcha) } id="refreshCaptcha">
+                        <FontAwesomeIcon icon={ faRefresh } />
+                      </button>
+                    </div>                
+                  </div>
+                </div>
+                <button id="confirmPurchase" type="submit" onClick={ sendOrder }>Confirm Purchase</button>                
               </form>
             </div>)
 }

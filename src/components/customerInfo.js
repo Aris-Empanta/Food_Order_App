@@ -75,9 +75,7 @@ export const CustomerInfo = () => {
           //We save the info that the customer is not registered
           dispatch(checkCustomerRegistered(false))
           //Receiving access to the component we will redirect
-          dispatch(verifyPurchase(true))
-
-          
+          dispatch(verifyPurchase(true))          
 
           //Redirect to the next component
           navigate("./confirm-purchase", { replace: true} )
