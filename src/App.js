@@ -8,6 +8,7 @@ import { ShoppingCart } from './components/shoppingCart';
 import { CustomerInfo } from './components/customerInfo';
 import { useSelector } from 'react-redux';
 import { VerifyPurchase } from './components/verifyPurchase';
+import { OrderCompleted } from './components/orderCompleted';
 
 
 const App = () => {
@@ -24,7 +25,9 @@ const App = () => {
               <Route path="shopping-cart" element={<ShoppingCart />} />              
               <Route path="shopping-cart/customer-info" element={ <CustomerInfo /> }/>      
               <Route path="shopping-cart/customer-info/confirm-purchase" 
-                     element = { <VerifyPurchase /> } />      
+                     element = { <VerifyPurchase /> } />   
+              <Route path='shopping-cart/customer-info/confirm-purchase/order-completed'
+                     element = { <OrderCompleted /> } />           
             </Routes>
           </div>
   );

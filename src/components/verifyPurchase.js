@@ -4,11 +4,12 @@ import { setVerificationCode, setFinalCart} from "../redux/slice"
 import axios from "axios"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faRefresh } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 import "../css/verifyPurchase.css"
 import { socket } from "./chat"
 import { grabUserCaptcha,
          generateCaptcha,
-         getNewPassword } from "../functions/cartFunctions"
+         getNewPassword, completeOrder } from "../functions/cartFunctions"
 
 export const VerifyPurchase = () => {
 
@@ -23,6 +24,9 @@ export const VerifyPurchase = () => {
     const comments = useSelector( state => state.customer.comments)
     const cart = useSelector( state => state.customer.finalCart)
     const customerIsRegistered = useSelector( state => state.customer.customerIsRegistered)
+
+    //React router hooks needed
+    const navigate = useNavigate()
 
     useEffect(() => {
               
@@ -60,11 +64,11 @@ export const VerifyPurchase = () => {
     const sendOrder = () => {
 
               //Input code should be the same data type as stored code
-              let code = parseInt(document.getElementById("code").value)
+              let code = parseInt(document.getElementById("code").value)             
 
               code === verificationCode || captcha === userCaptcha ? 
-                                          socket.emit("send order",cart) :
-                                          alert('verification failed')     
+                            completeOrder(socket, cart, navigate)  :
+                                     alert('verification failed')        
           }
 
     return(<div className="verifyPurchase">
@@ -84,10 +88,10 @@ export const VerifyPurchase = () => {
                   </div>
                   <p id="or">or</p>
                   <div id="captchaWrapper">
-                    <p className="verificationTitles">
-                      Type the characters bellow&nbsp;&nbsp;
+                    <div id="captchaInputWrapper">
+                      <p className="verificationTitles"> Type the characters bellow</p>
                       <input type="text" id="userCaptcha" onChange={ () => grabUserCaptcha(setUserCaptcha) }/>
-                    </p>
+                    </div>           
                     <div id="captchaBox">
                       <p id="captchaLetters">{ captcha }</p>                    
                       <button onClick={ () => generateCaptcha(setCaptcha) } id="refreshCaptcha">

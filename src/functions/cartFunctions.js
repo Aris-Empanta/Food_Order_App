@@ -123,3 +123,9 @@ export const getNewPassword = (dispatch, callback, email, axios ) => {
                                                                     verificationCode: verificationCode
                                                                    })
         }
+
+export  const completeOrder = (socket, cart, navigate) => {
+
+        socket.emit("send order",cart) 
+        navigate("./order-completed", { replace: true} )
+}
