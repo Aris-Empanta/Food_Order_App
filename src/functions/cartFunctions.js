@@ -124,8 +124,17 @@ export const getNewPassword = (dispatch, callback, email, axios ) => {
                                                                    })
         }
 
+//The function to send the order to the database and proceed 
+//to the final page.        
 export  const completeOrder = (socket, cart, navigate) => {
 
         socket.emit("send order",cart) 
         navigate("./order-completed", { replace: true} )
 }
+
+//The function to fetch the url of the order's invoice
+export const fetchInvoice = (axios, id, setInvoice) => {
+                                    
+        axios.get("http://localhost:5000/orders/order-with-id-" + id)
+             .then( res => setInvoice(res.data[0].invoice + ".pdf") ) 
+    }
