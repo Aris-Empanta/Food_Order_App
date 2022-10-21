@@ -1,14 +1,16 @@
 import "../css/orderCompleted.css"
 import axios from "axios"
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 import { useEffect, useState } from "react"
 import { fetchInvoice } from "../functions/cartFunctions"
+import { clearCart } from "../redux/slice"
 
 export const OrderCompleted = () => {
 
     const [invoice, setInvoice ] = useState("")
 
     const mail = useSelector( state => state.customer.finalCart[0].customerMail)
+    const dispatch = useDispatch()
 
     useEffect(() => {
         
@@ -28,9 +30,10 @@ export const OrderCompleted = () => {
                             invoiceLink.style.display = "initial"
                             loading.style.display = "none"
                         }) 
+        //We clear the cart
+       return () => dispatch(clearCart())
     })
-
-
+    
 
     return(<div className="orderCompleted">
             <p id="loadingInvoice">Loading...</p>
