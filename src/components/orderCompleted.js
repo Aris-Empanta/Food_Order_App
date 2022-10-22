@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from "react-redux"
 import { useEffect, useState } from "react"
 import { fetchInvoice } from "../functions/cartFunctions"
 import { clearCart } from "../redux/slice"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
 
 export const OrderCompleted = () => {
 
@@ -36,7 +38,12 @@ export const OrderCompleted = () => {
     
 
     return(<div className="orderCompleted">
+            <p className="completedTitle"> 
+                Your order has been successfully made!
+                Click the link below to get your invoice
+            </p>
+            <button id="arrowDown"><FontAwesomeIcon icon={ faArrowDown } /></button>
             <p id="loadingInvoice">Loading...</p>
-            <a id="invoiceLink" href={ invoice } target="_blank" rel="noreferrer">invoice</a>
+            <a id="invoiceLink" href={ invoice } target="_blank" rel="noreferrer">Customer's invoice</a>
            </div>)
 }
