@@ -16,11 +16,11 @@
     gap: 15px;
     margin: 0 40% 35px 3%;
     border-radius: 50px;
-    background-color: #D8BFD8;
+    background-color: rgb(226, 27, 90, 0.4);
 }
  
 .colorOfadmin {
-    background-color: #c9a0dc;
+    background-color: rgb(158, 12, 57, 0.6);
     margin: 0 3% 35px 40%;
 }
 
@@ -33,13 +33,13 @@
     margin-left: auto;
     font-size: 1.2rem;
     font-family: Arial, Helvetica, sans-serif;
-    color: #404040;
+    color: #101010;
 }
 
 .senderName {
     font-size: 1.2rem;
     font-family: Arial, Helvetica, sans-serif;
-    color: #404040;
+    color: #101010;
 }
 
 .messageTextWrapper {
@@ -51,7 +51,7 @@
 .messageText {
     font-size: 1.4rem;
     font-family: Arial, Helvetica, sans-serif;
-    color: #101010;
+    color: black;
     max-width: 100%;
     overflow-wrap: break-word;
 }
@@ -66,7 +66,7 @@
     font-size: 1.2rem;
 }
 
-#form { background: #dda0dd; 
+#form { background: rgb(226, 27, 90, 0.5); 
         padding: 0.3rem; 
         position: fixed; 
         bottom: 0; 
@@ -95,7 +95,7 @@
     padding: 4px 12px 4px 10px;
     font-size: 1.2rem;
     border: none;
-    background: linear-gradient( to bottom right, rgb(64, 84, 178), rgb(219, 2, 234));
+    background: linear-gradient( to bottom right, rgb(246, 27, 90, 0.8), rgb(158, 12, 57, 0.8));
     color: white;
     margin: 0.3rem 0.3rem 0.3rem 0; 
 }

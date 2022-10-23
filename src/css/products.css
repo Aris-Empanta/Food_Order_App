@@ -11,9 +11,9 @@
     display: none;
     width: 300px;
     margin-bottom: 60px;
-    border-radius: 5px;
-    padding: 10px;
-    background-color: wheat;
+    border-radius: 3px;
+    padding: 5px;
+    box-shadow: 1px 1px 4px rgb(21,66,44);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
 }
 
@@ -29,13 +29,16 @@
     font-weight: 600;
     font-size: 1.2rem;
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    color: rgb(21,66,44);
 }
 
 .productDescription {
     text-align: center;
     font-size: 1rem;
     min-height: 40px;
+    margin-bottom: 30px;
+    color: rgb(21,66,44);
 }
 
 .priceAndCart {
@@ -44,20 +47,21 @@
     justify-content: space-around;
     align-items: center;
     margin-top: 15px;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
     gap: 40px;
+    color: #CC0000;
 }
 
 .productPrice {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 .cartButton {
     padding: 5px 15px 8px 15px;
     border-radius: 25px;
-    background-color: magenta;
+    background-color: #CC0000;
     border: none;
-    color: white;
+    color: whitesmoke;
     font-size: 1rem;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     cursor: pointer;
@@ -72,10 +76,10 @@
     right: 20px;
     bottom: 40px;
     display: none;
-    background-color: rgb(0,0,0,0.4);
+    background-color: rgb(0,105,62, 0.7);
     border: none;
     border-radius: 50%;
-    color: rgb(0,0,0);
+    color: whitesmoke;
     font-size: 1.8rem;
 }
 

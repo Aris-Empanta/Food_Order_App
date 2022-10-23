@@ -20,7 +20,7 @@ export const EnterChat = () => {
                 <p id="chatLabel">Live chat</p>
                 <form action={"/#/chat/" + username} 
                     className="usernameForm"
-                    onSubmit={enterChat}>                    
+                    onSubmit={ enterChat }>                    
                 <input type="text" placeholder="Enter a username" id="username"/>
                 <input type="submit" value="Enter chat" id="enterChatButton"/> 
                 </form>

@@ -2,11 +2,12 @@
     position: fixed;
     width: 100%;
     list-style: none;
-    height: 80px;
+    height: 100px;
     display: flex;
     justify-content: space-around;  
     align-items: center;
-    background-color: aquamarine;
+    background: linear-gradient( to bottom, #0D813A, #15422c );
+    box-shadow: 1px 1px 4px #151515;
     top: 0;
 }
 
@@ -19,16 +20,16 @@
     background-color: transparent;
     border: none;
     cursor: pointer;
+    color: whitesmoke;
 }
 
 .largeScreenLinks {
     font-size: 1.2rem;
-    font-weight: 600;
 }
 
 #topNavbar a {
     text-decoration: none;
-    color: black;
+    color: whitesmoke;
     cursor: pointer;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;    
 }
@@ -65,14 +66,14 @@
 
 #cartAmount {
     font-size: 0.9rem;
-    color: white;
+    color: whitesmoke;
 }
 
 #menu {    
     width: 100%;
-    margin-top: 80px;
+    margin-top: 99px;
     list-style: none;
-    background-color: coral;    
+    background-color: rgb(21,66,44, 0.9);    
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
@@ -85,11 +86,10 @@
 
 #menu a {
     text-decoration: none;
-    color: white;
+    color: whitesmoke;
     cursor: pointer;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;  
     font-size: 1.1rem;
-    font-weight: 600;
 }
 
 .smallScreenLinks {
@@ -100,7 +100,7 @@
 
     #smallScreenNavbar {
         display: flex;
-        background-color: white;
+        background-color: rgb(21,66,44);
         padding: 25px;
         padding-bottom: 40px;
         align-items: center;
@@ -111,6 +111,7 @@
         list-style: none;
         transform: translateX(-100%);
         transition: transform 0.7s;
+        border-bottom: 1px solid #15422c;
     }
 
     
@@ -118,7 +119,7 @@
         font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;  
         font-size: 1.2rem;
         text-decoration: none;
-        color: black;
+        color: whitesmoke;
     }
 
     #topNavbar {

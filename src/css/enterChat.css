@@ -9,7 +9,6 @@
     align-items: flex-start;
     padding-top: 70px;
     height: 100vh;
-    background-color: silver;
 }
 
 #chatFormWrapper {
@@ -18,9 +17,9 @@
     align-items: center;
     border: 1px solid gray;
     padding: 50px 50px 120px 50px;
-    box-shadow: 1px 1px 4px black;
-    border-radius: 5px;
-    max-width: 90%;
+    box-shadow: 1px 1px 4px #15422c;
+    border-radius:3px;
+    max-width: 95%;
     gap: 30px;
 }
 
@@ -28,6 +27,7 @@
     margin: 30px;
     font-family: oleo; 
     font-size: 2.6rem;
+    color: #15422c
 }
 
 .usernameForm {
@@ -39,11 +39,12 @@
 }
 
 #username {
-    border-radius: 5px;
     border: none;
     padding: 10px;
     font-size: 1.2rem;
     max-width: 87%;
+    background-color: whitesmoke;
+    border-bottom: 1px solid #15422c;
 }
 
 #username:focus {
@@ -55,7 +56,8 @@
     border: none;
     padding: 10px;
     font-size: 1.2rem;
-    background-color: aquamarine;
+    background-color: #CC0000;
+    color: whitesmoke;
     width: 87%;
     cursor: pointer;
     max-width: 87%;
