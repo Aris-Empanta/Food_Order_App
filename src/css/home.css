@@ -1,0 +1,77 @@
+@font-face{
+    font-family: oleo;
+    src: url(fonts/OleoScript-Regular.ttf);
+}
+
+#home {
+    display: flex;
+    align-items: flex-start;
+    height: auto;
+    justify-content: space-evenly
+}
+
+#welcomeText {
+    color: rgb(21,66,44);
+    font-size: 3rem;
+    margin-top: 100px;
+    width: 500px;
+    max-width: 90%;
+    font-family: oleo;
+    font-weight: 400;  
+}
+
+#fastFood {
+    color: #e60023;
+    font-size: 6rem;
+    font-weight: 900;
+    font-family: oleo;
+    text-shadow:1px 1px 1px #fefe22,
+                1px 2px 1px #fefe22,
+                1px 3px 1px #fefe22,
+                1px 4px 1px #fefe22,
+                1px 5px 1px #fefe22,
+                1px 6px 1px #fefe22,
+                1px 7px 1px #fefe22,
+                1px 8px 1px #fefe22,
+                1px 9px 1px #fefe22,
+                1px 16px 6px rgba(16,16,16,0.4),
+                1px 20px 10px rgba(16,16,16,0.2);
+                
+}
+
+#fastFoodImage {
+    height: 500px;
+    width: 500px;
+    max-width: 90%;
+}
+
+@media (max-width: 500px) {
+    #home {
+        align-items: center;
+        flex-direction: column;
+    }
+
+    #welcomeText {
+        font-size: 2rem;
+        margin-left: 5%;
+        margin-right: auto;
+        text-align: center;
+    }
+    
+    #fastFood {
+        font-size: 3.4rem;
+    }
+
+    #fastFoodImage {
+        height: auto;
+    }
+
+
+}
+
+@media (min-width: 500px) and (max-width: 1020px) {
+    #home {
+        align-items: center;
+        flex-direction: column;
+    }
+}

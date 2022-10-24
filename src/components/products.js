@@ -42,7 +42,7 @@ export const Products = () => {
 
     }, [])
 
-    return(<div className="products">
+    return(<div id="products">
                {store.map(item => <div className={item.Category + " product"}>
                                              <img className="productImage" src= { item.Image_name} />
                                              <p className="productName"> { item.Name } </p> 

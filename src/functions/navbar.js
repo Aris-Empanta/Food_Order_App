@@ -20,7 +20,6 @@ export const showProducts = (category) => {
 
 export const handleNavbar = () => {
 
-    let topNavbar = document.getElementById("topNavbar")
     let lowerNavbar = document.getElementById("smallScreenNavbar")
     let xMark = document.getElementById("xMarkIcon")
     let barsIcon = document.getElementById("barsIcon")

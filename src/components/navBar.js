@@ -1,3 +1,4 @@
+
 import "../css/navBar.css"
 import axios from "axios"
 import { useEffect, useState } from "react"
@@ -37,9 +38,13 @@ export const NavBar = () => {
    window.addEventListener("resize", () => {
 
         const navBar = document.getElementById("smallScreenNavbar")
+        let barsIcon = document.getElementById("barsIcon")
+        let xMark = document.getElementById("xMarkIcon")
 
         if( window.innerWidth > 770 ) {
             navBar.style.transform = "translateX(-100%)"
+            xMark.style.display = "none"
+            barsIcon.style.display = "initial"
         }           
     })
     
