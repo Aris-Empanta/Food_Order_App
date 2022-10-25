@@ -58,7 +58,7 @@ export const NavBar = () => {
                     <a href="#/chat">Live chat</a>
                 </li>
                 <li className="largeScreenLinks">
-                    <a href="#" >Contact</a>
+                    <a href="#/contact" >Contact</a>
                 </li>
                 <li className="smallScreenLinks">
                     <button href="#" onClick={ handleNavbar } id="barsButton">

@@ -1,0 +1,43 @@
+#Contact {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 25px;
+}
+
+#contactDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+#contactForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #333;
+    padding: 40px 10px;
+}
+
+.contactLabels {
+    margin-bottom: 10px;
+    align-self: flex-start;
+    margin-left: 23px;
+}
+
+.inputField {
+    margin-bottom: 20px;
+    width: 500px;
+    max-width: 90%;
+    height: 35px;
+}
+
+#commentsArea {
+    height: 100px;
+}
+
+#submitForm {
+    cursor: pointer;
+    padding: 5px 20px;
+    align-self: flex-start;
+    margin-left: 26px;
+}
