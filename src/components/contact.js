@@ -1,7 +1,7 @@
 import "../css/contact.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faLocation } from "@fortawesome/free-solid-svg-icons"
-import { faMobilePhone } from "@fortawesome/free-solid-svg-icons"
+import { faMobileRetro } from "@fortawesome/free-solid-svg-icons"
 import { faPhone } from "@fortawesome/free-solid-svg-icons"
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons"
 
@@ -10,12 +10,32 @@ export const Contact = () => {
 
     return(<div id="Contact">
             <div id="contactDetails">
-              <h1> Contact us</h1>
-              <p><FontAwesomeIcon icon={faLocation} /> Eptanissou 12 Kipseli Attiki 11257</p>
-              <p><FontAwesomeIcon icon={ faPhone } /> +30 210 3456782</p>  
-              <p><FontAwesomeIcon icon={ faMobilePhone } /> +30 6978564326</p>
-              <p><FontAwesomeIcon icon={ faEnvelope } /> aris.restaurant@gmail.com</p>
-              <p>...Or fill up the form on the right side.</p>
+              <h1 id="contactUsHeader"> Contact us</h1>
+              <p className="contactInfo">
+                <span className="contactIcon">
+                  <FontAwesomeIcon icon={faLocation} />
+                </span>
+                &nbsp;&nbsp;Eptanissou 12 Kipseli Attiki 11257
+              </p>
+              <p className="contactInfo">
+                <span className="contactIcon">
+                  <FontAwesomeIcon icon={ faPhone } />
+                </span>
+                &nbsp;&nbsp;+30 210 3456782
+              </p>  
+              <p className="contactInfo">
+                <span className="contactIcon">
+                  <FontAwesomeIcon icon={ faMobileRetro } />
+                </span>
+                &nbsp;&nbsp;+30 6978564326
+              </p>
+              <p className="contactInfo">
+                <span className="contactIcon">
+                  <FontAwesomeIcon icon={ faEnvelope } />
+                </span>
+                &nbsp;&nbsp;aris.restaurant@gmail.com
+              </p>
+              <p className="contactInfo" id="orFillUp">...Or fill up the form.</p>
             </div>
             <div id="formWrapper">
               <form id="contactForm">

@@ -10,25 +10,66 @@
     gap: 50px;
 }
 
+.contactIcon {
+    background: linear-gradient( to bottom, #0D813A, #15422c );
+    border-radius: 2px;
+    padding: 5px;
+    color: whitesmoke;
+    font-size: 1.2rem;
+}
+
+#contactUsHeader {
+    color: rgb(139, 0, 0, 0.8);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;  
+    font-size: 2.5rem;
+}
+
+.contactInfo {
+    color: #15422c;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;  
+    font-size: 1rem;
+}
+
+#orFillUp {
+    font-size: 1.1rem;
+}
+
+#formWrapper {
+    max-width: 100%;
+}
+
 #contactForm {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid #333;
     padding: 40px 10px;
+    max-width: 95%;
+    background-color: rgb(139, 0, 0, 0.8);
 }
 
 .contactLabels {
     margin-bottom: 10px;
     align-self: flex-start;
     margin-left: 23px;
+    color: whitesmoke;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;  
+    font-size: 1.1rem;
 }
 
 .inputField {
     margin-bottom: 20px;
     width: 500px;
-    max-width: 90%;
+    max-width: 95%;
     height: 35px;
+    border: none;
+    border-radius: 3px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;  
+    font-size: 1.1rem;
+    padding: 0 5px;
+}
+
+.inputField:focus {
+    outline: none;
 }
 
 #commentsArea {
@@ -37,7 +78,35 @@
 
 #submitForm {
     cursor: pointer;
-    padding: 5px 20px;
+    padding: 7px 20px;
+    border-radius: 3px;
     align-self: flex-start;
     margin-left: 26px;
+    color: whitesmoke;
+    font-size: 1rem;
+    background: linear-gradient( to bottom, #0D813A, #15422c );
+    border: none;
+}
+
+@media (max-width: 520px) {
+
+    #Contact {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+
+    #formWrapper {
+        display: flex;
+        justify-content: center;
+    }
+} 
+
+@media (min-width: 521px) and (max-width: 850px) {
+
+    #Contact {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
 }
