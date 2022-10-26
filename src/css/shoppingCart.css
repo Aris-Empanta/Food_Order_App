@@ -136,7 +136,7 @@
     height: 30px;
     border-radius: 3px;
     border: none;
-    background-color: #C6011F;
+    background: linear-gradient( to bottom, #DA291C, #A50021);
     color: white;
     cursor: pointer;
     font-family: Arial, Helvetica, sans-serif;
@@ -149,7 +149,7 @@
     cursor: pointer;
     border-radius: 3px;
     border: none;
-    background-color: #0D813A;
+    background: linear-gradient( to bottom, #0D813A, #15422c );
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1rem;
