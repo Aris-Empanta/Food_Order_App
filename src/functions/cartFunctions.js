@@ -132,9 +132,13 @@ export  const completeOrder = (socket, cart, navigate) => {
         navigate("./order-completed", { replace: true} )
 }
 
-//The function to fetch the url of the order's invoice
-export const fetchInvoice = (axios, id, setInvoice) => {
-                                    
-        axios.get("http://localhost:5000/orders/order-with-id-" + id)
-             .then( res => setInvoice(res.data[0].invoice + ".pdf") ) 
-    }
+//With below function the invoice link will be shown 
+//Only when it is fetched from the database and set the state    
+export const showInvoiceLink = () => {
+
+        let invoice = document.getElementById("invoiceLink")
+        let loading = document.getElementById("loadingInvoice")
+
+        invoice.style.display = "initial"
+        loading.style.display = "none"
+}

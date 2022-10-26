@@ -60,15 +60,17 @@ export const ShoppingCart = () => {
       dispatch(removeProduct(id))
     }
     
-    //The function to send the cart order to the server in real time.
-    const sendOrder = () => {
+    //The function to proceed to the next component.
+    const proceed = () => {
 
-      dispatch(submitCart(true))
-      //Redirect to the next component
-      navigate("./customer-info", { replace: true} )    
+      if(localCart.length > 0) {
 
-      
-      let finalCart = localCart.map( item => {
+        dispatch(submitCart(true))
+        //Redirect to the next component
+        navigate("./customer-info", { replace: true} )    
+
+        
+        let finalCart = localCart.map( item => {
                                                 const modifiedCart = {}
                                                 
                                                 modifiedCart["id"] = item.id
@@ -81,7 +83,11 @@ export const ShoppingCart = () => {
 
                                                 return modifiedCart
                                               })
-      dispatch(setFinalCart(finalCart)) 
+        dispatch(setFinalCart(finalCart)) 
+    } else {
+
+      alert("You have no items in the cart.")
+    }
   } 
 
     return(<div className="cartComponent">
@@ -123,7 +129,7 @@ export const ShoppingCart = () => {
                   <p id="totalPrice">{ totalPrice(cart) }</p>
                   <div id="handleCartButtons">
                     <button onClick={ clearLocalCart } id="clearCart">Clear cart</button>
-                    <button onClick={ sendOrder } id="proceed">Proceed</button>                    
+                    <button onClick={ proceed } id="proceed">Proceed</button>                    
                   </div>
                 </div>  
               </div>             

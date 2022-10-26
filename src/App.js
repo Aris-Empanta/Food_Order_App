@@ -7,16 +7,12 @@ import { Chat } from './components/chat';
 import { EnterChat } from './components/enterChat';
 import { ShoppingCart } from './components/shoppingCart';
 import { CustomerInfo } from './components/customerInfo';
-import { useSelector } from 'react-redux';
 import { VerifyPurchase } from './components/verifyPurchase';
 import { OrderCompleted } from './components/orderCompleted';
 import { Contact } from './components/contact';
 
 
 const App = () => {
-
-  const cartSubmitted = useSelector( state => state.customer.cartSubmitted )
-  const gotVerificationCode = useSelector( state => state.customer.gotVerificationCode )
 
   return (<div>
             <NavBar />

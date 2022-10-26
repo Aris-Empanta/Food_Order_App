@@ -81,7 +81,7 @@ export const CustomerInfo = () => {
           navigate("./confirm-purchase", { replace: true} )
           
           //Sending http request to the server to send the verification code to the customer
-          axios.post("http://localhost:5000/confirm-email", { mail: mail,
+          axios.post("http://localhost:5000/email/confirm", { mail: mail,
                                                               verificationCode: verificationCode })
           //We save customer's info only if customer agrees          
           if ( saveInfoPermission === true ) saveCustomerInfo(socket) 
@@ -124,7 +124,7 @@ export const CustomerInfo = () => {
           //Redirect to the next component
             navigate("./confirm-purchase", { replace: true} )
             //Sending http request to the server to send the verification code to the customer
-            axios.post("http://localhost:5000/confirm-email", { mail: mail,
+            axios.post("http://localhost:5000/email/confirm", { mail: mail,
                                                                 verificationCode: verificationCode }) 
           }
 

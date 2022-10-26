@@ -64,8 +64,9 @@
     border: none;
     border-radius: 3px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;  
-    font-size: 1.1rem;
+    font-size: 1rem;
     padding: 0 5px;
+    color: #15422c;
 }
 
 .inputField:focus {
@@ -74,6 +75,8 @@
 
 #commentsArea {
     height: 100px;
+    padding: 5px;
+    color: #15422c;
 }
 
 #submitForm {
