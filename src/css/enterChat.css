@@ -48,7 +48,8 @@
 }
 
 #username:focus {
-    outline: none;
+    outline: none; 
+    background-color: whitesmoke;
 }
 
 #enterChatButton {
@@ -56,7 +57,7 @@
     border: none;
     padding: 10px;
     font-size: 1.2rem;
-    background-color: #CC0000;
+    background-color: #CC0000; 
     color: whitesmoke;
     width: 87%;
     cursor: pointer;

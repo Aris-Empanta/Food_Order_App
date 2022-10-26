@@ -1,3 +1,8 @@
+@font-face{
+    font-family: oleo;
+    src: url(fonts/OleoScript-Regular.ttf);
+}
+
 #topNavbar {
     position: fixed;
     width: 100%;
@@ -8,6 +13,31 @@
     align-items: center;
     background: linear-gradient( to bottom, #0D813A, #15422c );
     top: 0;
+}
+
+.logoLink {
+    display: flex;
+    align-items: center;
+}
+
+#smallLogo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.restaurantName {
+    font-family: oleo;
+    font-size: 1.5rem;
+    color: whitesmoke;
+    opacity: 0.9;
+}
+
+.logo {
+    height: 75px;
+    width: 100px;
+    font-family: oleo;
+    opacity: 0.9;
 }
 
 #smallScreenNavbar {
@@ -34,7 +64,7 @@
 }
 
 #navbarHome {
-    padding-left: 10%;
+    padding-left: 5%;
     padding-right: auto;
     width: 40%;
 }

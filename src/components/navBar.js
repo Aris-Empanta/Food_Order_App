@@ -5,10 +5,12 @@ import { useEffect, useState } from "react"
 import { showProducts, 
          handleNavbar } from "../functions/navbar"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faMessage } from "@fortawesome/free-solid-svg-icons"
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from 'react-redux'
 import { faBars } from "@fortawesome/free-solid-svg-icons"
 import { faXmark } from "@fortawesome/free-solid-svg-icons"
+import logo from "../css/images/logo.png"
 
 export const NavBar = () => {
 
@@ -52,7 +54,13 @@ export const NavBar = () => {
     return(<div>
              <ul id="topNavbar">
                 <li id="navbarHome" className="largeScreenLinks">
-                    <a href="#">Home</a>
+                    <a href="#" className="logoLink">                        
+                        <img src={ logo } className="logo"/>
+                        <div>
+                           <p className="restaurantName">Aris</p>
+                           <p className="restaurantName">Snack Bar</p>
+                        </div>                        
+                    </a>
                 </li>
                 <li className="largeScreenLinks">
                     <a href="#/chat">Live chat</a>
@@ -67,7 +75,12 @@ export const NavBar = () => {
                     </button>
                 </li>
                 <li className="smallScreenLinks">
-                    <a href="#">Home</a>
+                    <a href="#" className="logoLink">                        
+                        <div id="smallLogo">
+                           <p className="restaurantName">Aris</p>
+                           <p className="restaurantName">Snack Bar</p>
+                        </div>                      
+                    </a>
                 </li>
                 <li id="shoppingCart">
                     <a href="#/shopping-cart" id="cartIcon" >
@@ -83,7 +96,7 @@ export const NavBar = () => {
                     <a href="#/chat" onClick={ handleNavbar }>Live Chat</a>
                 </li>
                 <li>
-                    <a href="#" onClick={ handleNavbar } >Contact</a>
+                    <a href="#/contact" onClick={ handleNavbar } >Contact</a>
                 </li>
              </ul>
              <ul id="menu"> 
