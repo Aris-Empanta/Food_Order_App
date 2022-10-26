@@ -8,14 +8,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 50px;
+    padding-top: 40px;
 }
 
 #verificationTitle {
-    margin-bottom: 100px;
+    margin-bottom: 80px;
     font-size: 1.5rem;
     font-family: Arial, Helvetica, sans-serif;
     max-width: 90%;
+    color: #15422c;
 }
 
 #verifyForm {
@@ -23,7 +24,7 @@
     justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
-    gap: 100px;
+    gap: 90px;
     width: 100%;
 }
 
@@ -41,11 +42,13 @@
 
 .verificationTitles {
     font-size: 1rem;
+    font-weight: 600;
     font-family: Arial, Helvetica, sans-serif;
+    color: #15422c;
 }
 
 #code {
-    padding: 3px;
+    padding: 6px;
     font-size: 0.9rem;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -59,15 +62,17 @@
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 600;
     align-self: center;
+    color: #15422c;
 }
 
 #getNewCode {
-    padding: 5px;
+    padding: 8px;
     border: none;
-    background-color: aquamarine;
+    background: linear-gradient( to bottom, #0D813A, #15422c );
     font-size: 0.9rem;
     font-family: Arial, Helvetica, sans-serif;
     cursor: pointer;
+    color: whitesmoke;
 }
 
 #captchaWrapper {
@@ -88,11 +93,11 @@
     align-items: center;
     margin-top: 10px;
     letter-spacing: 3px;
-    padding: 20px;
+    padding: 18px;
     max-width: 95%;
     gap: 20px;
     border: 1px solid gray;
-    background-image: url("./images/captcha-bg.jpg");
+    background-image: url("./images/captcha-bg.png");
 }
 
 #userCaptcha {
@@ -108,6 +113,7 @@
 #captchaLetters {
     font-size: 2.5rem;
     font-family: captcha;
+    max-width: 95%;
     font-weight: 600;
     transform: skew(35deg) rotateX(30deg);
     text-shadow: 3px 3px 10px black;
@@ -118,18 +124,19 @@
     font-size: 1.3rem;
     border-radius: 5px;
     border: none;
-    background-color: blue;
-    color: white;
+    background: linear-gradient( to bottom, #DA291C, #A50021);
+    color: whitesmoke;
     cursor: pointer;
 }
 
 #confirmPurchase {
     padding: 10px;
     border: none;
-    background-color: chocolate;
-    font-size: 1rem;
+    background: linear-gradient( to bottom, #DA291C, #A50021);
+    font-size: 0.9rem;
     font-family: Arial, Helvetica, sans-serif;
     cursor: pointer;
+    color: whitesmoke;
 }
 
 @media (max-width: 500px) {

@@ -6,6 +6,12 @@
     margin-top: 50px;
 }
 
+#cartHeader {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.8rem;
+    color: rgb(21,66,44);
+}
+
 .shoppingCart {
     display: flex;
     margin-bottom: 100px;
@@ -23,9 +29,10 @@
 .cartProducts {
     display: flex;
     gap: 30px;
-    border: 1px solid black;
+    box-shadow: 1px 1px 4px rgb(21,66,44);
     align-items: center;
     padding: 10px;
+    border-radius: 3px;
 }
 
 .cartItem {
@@ -51,23 +58,26 @@
 }
 
 .quantityBox {
-    border: 1px solid black;
+    border: 1px solid rgb(21,66,44);
     padding: 0;
     display: flex;
     align-items: center;
     padding: 0 5px;
-    border-radius: 3px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
 }
 
 .itemsName {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.1rem;
     font-weight: 600;
+    color: rgb(21,66,44);
 }
 
 .itemsDescription {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.1rem;
+    color: rgb(21,66,44);
 }
  
 .cartButtons {
@@ -76,14 +86,19 @@
     cursor: pointer;
     padding: 8px;
     font-size: 1.3rem;
+    color: rgb(21,66,44);
+}
+
+.trashCan {
+    color: #C6011F;
 }
 
 .summarizeCart {
     display: flex;
     flex-direction: column;    
     gap: 40px;
-    padding: 15px;
-    border: 1px solid black;
+    padding: 20px;
+    box-shadow: 1px 1px 4px rgb(21,66,44);
 }
 
 #totalItemsWrapper {
@@ -94,18 +109,21 @@
 
 #totalItems {
     font-family: Arial, Helvetica, sans-serif;
+    color: rgb(21,66,44);
     font-size: 1.2rem;
 }
 
 #itemsQuantity {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.2rem;
+    color: rgb(21,66,44);
 }
 
 #totalPrice {
     align-self: center;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.2rem;
+    color: rgb(21,66,44);
 }
 
 #handleCartButtons {
@@ -118,7 +136,7 @@
     height: 30px;
     border-radius: 3px;
     border: none;
-    background-color: red;
+    background-color: #C6011F;
     color: white;
     cursor: pointer;
     font-family: Arial, Helvetica, sans-serif;
@@ -131,7 +149,8 @@
     cursor: pointer;
     border-radius: 3px;
     border: none;
-    background-color: yellowgreen;
+    background-color: #0D813A;
+    color: white;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1rem;
     padding: 5px;

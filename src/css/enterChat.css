@@ -57,7 +57,7 @@
     border: none;
     padding: 10px;
     font-size: 1.2rem;
-    background-color: #CC0000; 
+    background: linear-gradient( to bottom, #DA291C, #A50021);
     color: whitesmoke;
     width: 87%;
     cursor: pointer;

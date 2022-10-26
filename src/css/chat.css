@@ -67,7 +67,7 @@
     color: rgb(21,66,44);
 }
 
-#form { background: rgb(139, 0, 0, 0.8); 
+#form { background: rgb(139, 0, 0, 0.7); 
         padding: 0.3rem; 
         position: fixed; 
         bottom: 0; 
@@ -97,7 +97,7 @@
     padding: 4px 12px 4px 10px;
     font-size: 1.2rem;
     border: none;
-    background-color: rgb(139, 0, 0);
+    background: linear-gradient( to bottom, #FF2400, #990000);
     color: whitesmoke;
     margin: 0.3rem 0.3rem 0.3rem 0; 
 }

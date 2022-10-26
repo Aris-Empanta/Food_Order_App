@@ -148,7 +148,7 @@ export const CustomerInfo = () => {
                   <textarea type="text" id="enterComments" />
                   <div id="rememberMe">
                     <input type="checkbox" id="saveInfoPermission"/>
-                    <p > Save info </p>
+                    <p id='saveInfo'> Save info </p>
                   </div>
                   <button onClick={ getPassword } id="submitForPassword">Get password</button>
                 </form> 

@@ -85,7 +85,7 @@ export const ShoppingCart = () => {
   } 
 
     return(<div className="cartComponent">
-            <h1>Shopping Cart</h1>
+            <h1 id="cartHeader">Shopping Cart</h1>
             <div className="shoppingCart">
               <div className="cartDetails">
                 {localCart.map((item) => <div className="cartProducts">
@@ -106,11 +106,11 @@ export const ShoppingCart = () => {
                                               </div>                                             
                                               <button onClick = { () => decreaseQuantity(item.id) }
                                                       className="cartButtons" >
-                                                <FontAwesomeIcon icon={ faMinus } />
+                                                <FontAwesomeIcon icon={ faMinus } /> 
                                               </button>
                                             </div>
                                             <button onClick = { () => removeItem(item.id)}
-                                                    className="cartButtons" >
+                                                    className="cartButtons trashCan" >
                                               <FontAwesomeIcon icon={ faTrash } />
                                             </button>
                                          </div>                      )}

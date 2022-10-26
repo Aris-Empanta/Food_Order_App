@@ -9,7 +9,7 @@ export const totalItems = (cart) => {
 export const totalPrice = (cart) => {
 
         return cart.map( item => item.price )
-                   .reduce( (previous, current) => previous + current, 0)
+                   .reduce( (previous, current) => previous + current, 0) + " EUR"
       }
 
 // The function that will send all the customer's

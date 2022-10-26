@@ -59,7 +59,7 @@
 .cartButton {
     padding: 5px 15px 8px 15px;
     border-radius: 25px;
-    background-color: #CC0000;
+    background: linear-gradient( to bottom, #DA291C, #A50021);
     border: none;
     color: whitesmoke;
     font-size: 1rem;
