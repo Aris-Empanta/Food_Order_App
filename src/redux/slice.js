@@ -10,7 +10,6 @@ const initialState = {
   cart: [],
   finalCart: [],
   cartSubmitted: false,
-  verificationCode: 0,
   gotVerificationCode: false,
   customerName: "", 
   email: "",
@@ -70,10 +69,6 @@ export const cartSlice = createSlice({
 
             state.finalCart = action.payload
         },
-        setVerificationCode: (state, action) => {
-
-            state.verificationCode = action.payload
-        },
         setCustomerName : (state, action) => {
 
             state.customerName = action.payload
@@ -109,7 +104,6 @@ export const { addToCart,
                removeProduct, 
                submitCart,
                setFinalCart,
-               setVerificationCode,
                setEmail,
                setCustomerName,
                verifyPurchase,

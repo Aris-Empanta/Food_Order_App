@@ -33,18 +33,7 @@ export const saveCustomerInfo = (socket) => {
                                       })
   }
 
-//The function to generate verification code
-export const generateCode = () => {
 
-        let verificationCode = 100000 * Math.floor(Math.random() * 10) +
-                             10000 * Math.floor(Math.random() * 10) +
-                             1000 * Math.floor(Math.random() * 10) + 
-                             100 * Math.floor(Math.random() * 10) + 
-                             10 * Math.floor(Math.random() * 10) + 
-                             Math.floor(Math.random() * 10)
-
-        return verificationCode
-}
 
 //The function to configure the cart details to be sent to the server
 export const getFinalCart = (cart) => {

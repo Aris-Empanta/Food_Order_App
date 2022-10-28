@@ -9,7 +9,7 @@ import { setVerificationCode,
          checkCustomerRegistered,
          setFinalCart} from '../redux/slice';
 import { useNavigate } from "react-router-dom";
-import { saveCustomerInfo, generateCode, getFinalCart } from '../functions/cartFunctions';
+import { saveCustomerInfo, getFinalCart } from '../functions/cartFunctions';
 import axios from 'axios';
 import { socket } from "./chat"
 
@@ -60,15 +60,10 @@ export const CustomerInfo = () => {
 
           alert("There are empty compulsory fields!")
       } else {
-
-          //A random 6 figure number for e-mail verification
-          let verificationCode = generateCode()
-          
+                    
           //The final cart details to be sent
           let finalCart = getFinalCart(cart)
-
-          //We save the code and email to the redux store                       
-          dispatch(setVerificationCode(verificationCode))
+          
           dispatch(setEmail(mail))
           dispatch(setCustomerName(name))
           dispatch(setFinalCart(finalCart))
@@ -81,8 +76,7 @@ export const CustomerInfo = () => {
           navigate("./confirm-purchase", { replace: true} )
           
           //Sending http request to the server to send the verification code to the customer
-          axios.post("http://localhost:5000/email/confirm", { mail: mail,
-                                                              verificationCode: verificationCode })
+          axios.post("http://localhost:5000/email/confirm", { mail: mail })
           //We save customer's info only if customer agrees          
           if ( saveInfoPermission === true ) saveCustomerInfo(socket) 
         }
@@ -96,9 +90,7 @@ export const CustomerInfo = () => {
       let mail =  document.getElementById("knownMail").value
       let comments =  document.getElementById("knownComments").value
       
-      //A random 6 figure number for e-mail verification
-      let verificationCode = generateCode()
-
+      
       //Mail input shouldnt be empty and should be a registered one
       if(mail === '') {
 
@@ -116,16 +108,13 @@ export const CustomerInfo = () => {
             dispatch(setComments(comments))
             //Receiving access to the component we will redirect
             dispatch(verifyPurchase(true))
-            //We save the code and email to the redux store                       
-            dispatch(setVerificationCode(verificationCode))
             //We save the info that the customer is registered
             dispatch(checkCustomerRegistered(true))
 
           //Redirect to the next component
             navigate("./confirm-purchase", { replace: true} )
             //Sending http request to the server to send the verification code to the customer
-            axios.post("http://localhost:5000/email/confirm", { mail: mail,
-                                                                verificationCode: verificationCode }) 
+            axios.post("http://localhost:5000/email/confirm", { mail: mail }) 
           }
 
     }

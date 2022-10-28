@@ -30,8 +30,7 @@ export const VerifyPurchase = () => {
 
     useEffect(() => {
               
-      //The confirmation code should last for only 5 minutes
-      setTimeout( () => dispatch(setVerificationCode(0)), 300000 )
+      //We generate captcha
       generateCaptcha(setCaptcha)
       
       if( customerIsRegistered === true) {  
@@ -54,39 +53,20 @@ export const VerifyPurchase = () => {
                                 dispatch(setFinalCart(finalCart))                                               
                             })
               }
-        //Reseting the verification code once component unmounts
-        return () => {
-            dispatch(setVerificationCode(""))
-        } 
     }, [])
         
     //Below function send customer's order to the server
     const sendOrder = () => {
 
-              //Input code should be the same data type as stored code
-              let code = parseInt(document.getElementById("code").value)             
-
-              code === verificationCode || captcha === userCaptcha ? 
-                            completeOrder(socket, cart, navigate)  :
-                                     alert('verification failed')        
+                            captcha === userCaptcha ? 
+             completeOrder(socket, cart, navigate)  :
+                      alert('verification failed')        
           }
 
     return(<div className="verifyPurchase">
-              <h1 id="verificationTitle">Please Choose a verification method</h1>
+              <h1 id="verificationTitle">Please verify the purchase</h1>
               <form id="verifyForm">
-                <div id="mailAndCaptcha">
-                  <div id="mailCodeWrapper">
-                    <label className="verificationTitles">Enter the code you received in your email</label>
-                    <div id="mailInputWrapper">
-                      <input type="text" id="code"/>
-                      <button id="getNewCode"
-                              onClick={ () => getNewPassword( dispatch,
-                                                              setVerificationCode,
-                                                              email,
-                                                              axios) }> Get new code </button>
-                    </div>                    
-                  </div>
-                  <p id="or">or</p>
+                <div id="captchaOuterWrapper">
                   <div id="captchaWrapper">
                     <div id="captchaInputWrapper">
                       <p className="verificationTitles"> Type the characters bellow</p>
