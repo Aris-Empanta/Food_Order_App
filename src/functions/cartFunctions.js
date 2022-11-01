@@ -118,7 +118,7 @@ export const getNewPassword = (dispatch, callback, email, axios ) => {
 export  const completeOrder = (socket, cart, navigate) => {
 
         socket.emit("send order",cart) 
-        navigate("./order-completed", { replace: true} )
+        socket.on("new order", () => navigate("./order-completed", { replace: true} ) )        
 }
 
 //With below function the invoice link will be shown 

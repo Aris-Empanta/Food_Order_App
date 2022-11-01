@@ -139,7 +139,7 @@ export const CustomerInfo = () => {
                     <input type="checkbox" id="saveInfoPermission"/>
                     <p id='saveInfo'> Save info </p>
                   </div>
-                  <button onClick={ getPassword } id="submitForPassword">Get password</button>
+                  <button onClick={ getPassword } id="submitForPassword">Proceed</button>
                 </form> 
               </div>
               <div className = "registeredInfo">
@@ -149,7 +149,7 @@ export const CustomerInfo = () => {
                   <input type="email" id="knownMail"/>
                   <label className='labels'>Additional comments</label>
                   <textarea type="text" id="knownComments" />
-                  <button onClick={ handleRegisteredCustomer } id="submitRegistered">Get password</button>
+                  <button onClick={ handleRegisteredCustomer } id="submitRegistered">Proceed</button>
                 </form>
               </div>
             </div>
