@@ -21,7 +21,7 @@ export const OrderCompleted = () => {
         // the url of the invoice pdf.Then the link to the pdf 
         //can be shown.
         axios.get("http://localhost:5000/orders/latest-order-id-of-" + mail)
-             .then( res =>  setInvoice (res.data.invoice + ".pdf") ) 
+             .then( res =>  setInvoice (res.data.invoice + ".pdf") )  
      
         //We clear the cart
        return () => dispatch(clearCart())

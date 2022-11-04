@@ -53,13 +53,17 @@ export const VerifyPurchase = () => {
                                 dispatch(setFinalCart(finalCart))                                               
                             })
               }
+
+      socket.on("new order", () => navigate("./order-completed", { replace: true} ) ) 
     }, [])
         
     //Below function send customer's order to the server
-    const sendOrder = () => {
+    const sendOrder = (e) => {
+
+                      e.preventDefault()
 
                             captcha === userCaptcha ? 
-             completeOrder(socket, cart, navigate)  :
+                       completeOrder(socket, cart)  : 
                       alert('verification failed')        
           }
 

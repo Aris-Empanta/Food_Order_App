@@ -82,7 +82,7 @@ export const generateCaptcha = ( callback ) => {
                              'W', 'X', 'Y', 'Z', '0', '1',
                              '2', '3', '4', '5', '6', '7',
                              '8', '9']
-        let captcha = []
+        let captcha = [] 
 
         for( let i=0; i < 6; i++ ) {
 
@@ -115,10 +115,9 @@ export const getNewPassword = (dispatch, callback, email, axios ) => {
 
 //The function to send the order to the database and proceed 
 //to the final page.        
-export  const completeOrder = (socket, cart, navigate) => {
+export  const completeOrder = (socket, cart) => {
 
-        socket.emit("send order",cart) 
-        socket.on("new order", () => navigate("./order-completed", { replace: true} ) )        
+        socket.emit("send order",cart)        
 }
 
 //With below function the invoice link will be shown 
