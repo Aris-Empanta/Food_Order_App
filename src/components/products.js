@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { addToCart } from "../redux/slice";
 import { scrollUp, showScrollUp } from "../functions/products";
 import "../css/products.css"
+import { PizzaLoader } from "./pizzaLoader";
 
 export const Products = () => {
 
@@ -42,7 +43,7 @@ export const Products = () => {
 
     }, [])
 
-    return(<div id="products">
+    return(<div id="products">                
                {store.map(item => <div className={item.Category + " product"}>
                                              <img className="productImage" src= { item.Image_name} />
                                              <p className="productName"> { item.Name } </p> 

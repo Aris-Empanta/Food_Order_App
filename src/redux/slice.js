@@ -22,6 +22,7 @@ const initialState = {
 export const fetchProducts = createAsyncThunk('products/fetchProducts', async () => {
     try{
         const response = await axios.get(GET_PRODUCTS)
+
         return [...response.data]
     } catch(err) {
         return err.message

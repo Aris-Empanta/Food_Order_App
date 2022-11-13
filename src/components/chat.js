@@ -6,6 +6,7 @@ import { showMessage } from "../functions/chat";
 import {useParams} from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPaperPlane } from "@fortawesome/free-regular-svg-icons"
+import { PizzaLoader } from "./pizzaLoader";
 import axios from 'axios'
 
 //Initializing socket.io and url's parameter name object.
@@ -24,10 +25,12 @@ export const Chat = () => {
                         //Holding customer's name from url in a variable.
                         let customer = params.username 
                         let userType = document.getElementById("userTyping") 
+                        let chatLoader = document.getElementById("chatLoader")
 
                         //Fetching all the old messages to be displayed.
                         axios.get('http://localhost:5000/chat-messages')
                              .then(res =>  { 
+                                              chatLoader.style.display = "none"
                                               let messages = res.data.filter(item => item.Customer === customer)
                                               if(messagesHistory.length !== messages.length) setMessagesHistory(messages)
                                               })
@@ -89,6 +92,7 @@ export const Chat = () => {
         } 
 
     return(<div className="chat">
+                <div id="chatLoader"><PizzaLoader /></div>
                 <ul id="messages">
                     { messagesHistory.map( item =>  <li className={"messageInfoWrapper colorOf"+ item.Sender}>
                                                       <div className="senderAndDate">

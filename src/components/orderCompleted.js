@@ -7,6 +7,7 @@ import { showInvoiceLink } from "../functions/cartFunctions"
 import { clearCart } from "../redux/slice"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
+import { PizzaLoader } from "./pizzaLoader";
 
 export const OrderCompleted = () => {
 
@@ -35,8 +36,7 @@ export const OrderCompleted = () => {
             </p>
             <button id="arrowDown"><FontAwesomeIcon icon={ faArrowDown } /></button>
             <div id="loadingInvoice">
-                <div class="loader"></div>
-                <p>If the invoice doesnt Load refresh the page</p>
+                <PizzaLoader/>
             </div>
             <a id="invoiceLink" href={ invoice } target="_blank" rel="noreferrer">
                 Customer's invoice
