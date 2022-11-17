@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { setVerificationCode, setFinalCart} from "../redux/slice"
+import { setFinalCart} from "../redux/slice"
 import axios from "axios"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faRefresh } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import "../css/verifyPurchase.css"
 import { socket } from "./chat"
-import { grabUserCaptcha,
-         generateCaptcha,
-         getNewPassword, completeOrder } from "../functions/cartFunctions"
+import { serverHost } from "../variables/variables"
+import { grabUserCaptcha, generateCaptcha, 
+         completeOrder } from "../functions/cartFunctions"
 
 export const VerifyPurchase = () => {
 
@@ -35,7 +35,7 @@ export const VerifyPurchase = () => {
       
       if( customerIsRegistered === true) {  
         //With customer's email, we fetch all the other customer's details
-        axios.get("http://localhost:5000/customers/customer-by-" + email)
+        axios.get( serverHost + "customers/customer-by-" + email)
              .then( res => {
                               let finalCart = cart.map( item => { 
                                                           const modifiedCart = {...item}                                                                                                 

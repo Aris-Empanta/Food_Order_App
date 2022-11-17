@@ -8,6 +8,7 @@ import { clearCart } from "../redux/slice"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
 import { PizzaLoader } from "./pizzaLoader";
+import { serverHost } from "../variables/variables";
 
 export const OrderCompleted = () => {
 
@@ -21,7 +22,7 @@ export const OrderCompleted = () => {
         //We fetch the order's id from the server, and then
         // the url of the invoice pdf.Then the link to the pdf 
         //can be shown.
-        axios.get("http://localhost:5000/orders/latest-order-id-of-" + mail)
+        axios.get( serverHost + "orders/latest-order-id-of-" + mail)
              .then( res =>  setInvoice (res.data.invoice + ".pdf") )  
      
         //We clear the cart

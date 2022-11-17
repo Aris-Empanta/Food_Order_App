@@ -1,3 +1,5 @@
+import { serverHost } from "../variables/variables"
+
 //The function to get the total items
 export const totalItems = (cart) => {
 
@@ -108,7 +110,7 @@ export const getNewPassword = (dispatch, callback, email, axios ) => {
                 //We save it to the redux store                       
                 dispatch(callback(verificationCode))
 
-                axios.post("http://localhost:5000/confirm-email", { mail: email,
+                axios.post( serverHost + "confirm-email", { mail: email,
                                                                     verificationCode: verificationCode
                                                                    })
         }

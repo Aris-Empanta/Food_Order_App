@@ -1,8 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
+import { serverHost } from '../variables/variables'
 
 //The api url to fetch the products data.
-const GET_PRODUCTS = "http://localhost:5000/products"
+const GET_PRODUCTS = serverHost + "products"
 
 //The initial empty cart state
 const initialState = {

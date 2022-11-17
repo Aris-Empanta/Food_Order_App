@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import "../css/customerInfo.css"
 import { useDispatch, useSelector } from "react-redux"
-import { setVerificationCode, 
-         setCustomerName, 
+import { setCustomerName, 
          setEmail,
          setComments,
          verifyPurchase, 
@@ -12,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { saveCustomerInfo, getFinalCart } from '../functions/cartFunctions';
 import axios from 'axios';
 import { socket } from "./chat"
+import { serverHost } from '../variables/variables';
 
 export const CustomerInfo = () => {
 
@@ -25,7 +25,7 @@ export const CustomerInfo = () => {
 
         //We save to a state array all registered customers' mails and phones
         //To prevent duplicates in latervalidations. 
-        axios.get('http://localhost:5000/customers/customers-info')
+        axios.get( serverHost + 'customers/customers-info')
              .then( res => {
                               let customersMails = res.data.map( item => item.Email )
 
@@ -73,10 +73,8 @@ export const CustomerInfo = () => {
           dispatch(verifyPurchase(true))          
 
           //Redirect to the next component
-          navigate("./confirm-purchase", { replace: true} )
+          navigate("./confirm-purchase", { replace: true} )          
           
-          //Sending http request to the server to send the verification code to the customer
-          axios.post("http://localhost:5000/email/confirm", { mail: mail })
           //We save customer's info only if customer agrees          
           if ( saveInfoPermission === true ) saveCustomerInfo(socket) 
         }
@@ -113,8 +111,6 @@ export const CustomerInfo = () => {
 
           //Redirect to the next component
             navigate("./confirm-purchase", { replace: true} )
-            //Sending http request to the server to send the verification code to the customer
-            axios.post("http://localhost:5000/email/confirm", { mail: mail }) 
           }
 
     }

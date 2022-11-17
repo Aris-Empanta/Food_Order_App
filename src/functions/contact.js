@@ -1,3 +1,5 @@
+import { serverHost } from "../variables/variables"
+
 //The function to send the form's data to the server
 export const sendForm = (axios) => {
     
@@ -16,13 +18,16 @@ export const sendForm = (axios) => {
     //The function to actually send the form                
     const sendMessage = () => {
 
-        axios.post("http://localhost:5000/email/customer-form", formData)
-        alert("Your message was successfully sent!")
-        //Emptying the input fields after submitting the form
-        document.getElementById("contactName").value = ''
-        document.getElementById("contactEmail").value = ''
-        document.getElementById("contactPhone").value = ''
-        document.getElementById("commentsArea").value = ''
+        axios.post( serverHost + "email/customer-form", formData)
+             .then( res => {
+                            alert(res.data)
+                            //Emptying the input fields after submitting the form
+                            document.getElementById("contactName").value = ''
+                            document.getElementById("contactEmail").value = ''
+                            document.getElementById("contactPhone").value = ''
+                            document.getElementById("commentsArea").value = ''
+                          })
+        
     }
 
     //We dont allow empty fields

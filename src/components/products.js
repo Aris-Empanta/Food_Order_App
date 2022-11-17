@@ -7,7 +7,6 @@ import { useSelector, useDispatch } from 'react-redux'
 import { addToCart } from "../redux/slice";
 import { scrollUp, showScrollUp } from "../functions/products";
 import "../css/products.css"
-import { PizzaLoader } from "./pizzaLoader";
 
 export const Products = () => {
 
@@ -32,7 +31,7 @@ export const Products = () => {
 
         // We fetch all products from database and set the global redux
         //store accordingly.
-        dispatch(fetchProducts())
+        dispatch(fetchProducts()) 
 
         // We let only products with category attribute same as the url
         //parameter to be displayed.

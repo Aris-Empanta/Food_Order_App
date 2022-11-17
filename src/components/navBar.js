@@ -1,16 +1,15 @@
-
 import "../css/navBar.css"
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { showProducts, 
          handleNavbar } from "../functions/navbar"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faMessage } from "@fortawesome/free-solid-svg-icons"
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from 'react-redux'
 import { faBars } from "@fortawesome/free-solid-svg-icons"
 import { faXmark } from "@fortawesome/free-solid-svg-icons"
 import logo from "../css/images/logo.png"
+import { serverHost } from "../variables/variables"
 
 export const NavBar = () => {
 
@@ -29,7 +28,7 @@ export const NavBar = () => {
         xMark.style.display = "none"
 
 
-        axios.get("http://localhost:5000/products/categories").then((res) => {
+        axios.get( serverHost + "products/categories").then((res) => {
 
             setMenu( res.data )
         })        

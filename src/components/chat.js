@@ -7,10 +7,11 @@ import {useParams} from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPaperPlane } from "@fortawesome/free-regular-svg-icons"
 import { PizzaLoader } from "./pizzaLoader";
+import { serverHost } from "../variables/variables"
 import axios from 'axios'
 
 //Initializing socket.io and url's parameter name object.
-export const socket = io(`http://localhost:5000`);
+export const socket = io( serverHost );
 
 //The dynamically created component we are redirected to when we enter our username to chat with admin.
 export const Chat = () => {    
@@ -28,7 +29,7 @@ export const Chat = () => {
                         let chatLoader = document.getElementById("chatLoader")
 
                         //Fetching all the old messages to be displayed.
-                        axios.get('http://localhost:5000/chat-messages')
+                        axios.get( serverHost + 'chat-messages')
                              .then(res =>  { 
                                               chatLoader.style.display = "none"
                                               let messages = res.data.filter(item => item.Customer === customer)
