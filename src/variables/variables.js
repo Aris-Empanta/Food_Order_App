@@ -2,4 +2,4 @@
 //code. So that if we change host, instead of changing it in every single part, we change only
 //the variable below.
 
-export const serverHost = "http://localhost:5000/" 
+export const serverHost = "https://restaurant-server.arisdb.myipservers.gr/" 
