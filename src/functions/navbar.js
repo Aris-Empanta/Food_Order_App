@@ -7,7 +7,7 @@ export const showProducts = (category) => {
 
     //Hides all products
     for( let i=0; i < allProducts.length; i++) {
-
+ 
         allProducts[i].style.display = 'none'
     }
 
@@ -47,4 +47,13 @@ export const hideNavbar = () => {
     let navbar = document.getElementById("smallScreenNavbar")
     
     navbar.style.display = 'none'
+}
+
+export const handeAppLoading = () => {
+    
+        let navbarWrapper = document.getElementById("navbarWrapper")
+        let loadingApp = document.getElementById("loadingApp")
+
+        navbarWrapper.style.display = "initial"
+        loadingApp.style.display = "none"
 }

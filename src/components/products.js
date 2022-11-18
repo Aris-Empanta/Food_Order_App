@@ -24,23 +24,21 @@ export const Products = () => {
     
     
     useEffect(() => {
-        
+         
         const obviousProducts = document.getElementsByClassName(params.products) 
 
         window.scrollTo(0,0)
 
         // We fetch all products from database and set the global redux
         //store accordingly.
-        dispatch(fetchProducts()) 
+        dispatch(fetchProducts()).then( res => {
+                                                // We let only products with category attribute same as the url
+                                                //parameter to be displayed.
+                                                for( let i=0; i < obviousProducts.length; i++) {
 
-        // We let only products with category attribute same as the url
-        //parameter to be displayed.
-        for( let i=0; i < obviousProducts.length; i++) {
-
-            obviousProducts[i].style.display = 'initial'
-        }
-
-    }, [])
+                                                    obviousProducts[i].style.display = 'initial'
+                                                }})
+        }, [])
 
     return(<div id="products">                
                {store.map(item => <div className={item.Category + " product"}>

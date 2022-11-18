@@ -1,7 +1,7 @@
 import "../css/navBar.css"
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { showProducts, 
+import { showProducts, handeAppLoading,
          handleNavbar } from "../functions/navbar"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
@@ -10,10 +10,11 @@ import { faBars } from "@fortawesome/free-solid-svg-icons"
 import { faXmark } from "@fortawesome/free-solid-svg-icons"
 import logo from "../css/images/logo.png"
 import { serverHost } from "../variables/variables"
+import useStateWithCallback from 'use-state-with-callback';
 
 export const NavBar = () => {
 
-    const [menu, setMenu] = useState([])
+    const [menu, setMenu] = useStateWithCallback([], handeAppLoading)
 
     const cart = useSelector( state => state.customer.cart )
           
@@ -21,6 +22,7 @@ export const NavBar = () => {
     //from the database.
     useEffect(() => {
 
+        
         let navbar = document.getElementById("smallScreenNavbar")
         let xMark = document.getElementById("xMarkIcon")
 
@@ -50,7 +52,7 @@ export const NavBar = () => {
     })
     
 
-    return(<div>
+    return(<div id="navbarWrapper">
              <ul id="topNavbar">
                 <li id="navbarHome" className="largeScreenLinks">
                     <a href="#" className="logoLink">                        
@@ -100,7 +102,7 @@ export const NavBar = () => {
              </ul>
              <ul id="menu"> 
                 {menu.map( item => <li className="individualProduct">
-                                       <a href= { "#/" + item } onClick={() => showProducts(item)}>{ item }</a>
+                                       <a href= { "#/" + item } onClick={() => showProducts(item)}>{ item }</a> 
                                    </li>)}
              </ul>
           </div>)

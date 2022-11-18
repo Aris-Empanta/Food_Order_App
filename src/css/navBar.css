@@ -3,6 +3,10 @@
     src: url(fonts/OleoScript-Regular.ttf);
 }
 
+#navbarWrapper {
+    display: none;
+}
+
 #topNavbar {
     position: fixed;
     width: 100%;

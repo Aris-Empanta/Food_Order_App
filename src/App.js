@@ -10,12 +10,13 @@ import { CustomerInfo } from './components/customerInfo';
 import { VerifyPurchase } from './components/verifyPurchase';
 import { OrderCompleted } from './components/orderCompleted';
 import { Contact } from './components/contact';
-
+import { LoadingApp } from './components/loadingApp';
 
 const App = () => {
 
   return (<div>
             <NavBar />
+            <LoadingApp />
             <Routes>       
               <Route path='/' element={<Home />}/>
               <Route path=":products" element={<Products />} />
