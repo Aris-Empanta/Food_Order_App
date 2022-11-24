@@ -40,7 +40,7 @@ export const Contact = () => {
               <p className="contactInfo" id="orFillUp">...Or fill up the form.</p>
             </div>
             <div id="formWrapper">
-              <form id="contactForm" onSubmit={ () => sendForm(axios) }>
+              <form id="contactForm" onSubmit={ () => sendForm(axios) } autoComplete="off" >
                 <label className="contactLabels" >Full name</label>
                 <input type="text" className="inputField" id="contactName"/>
                 <label className="contactLabels">Email</label>

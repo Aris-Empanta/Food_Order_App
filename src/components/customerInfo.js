@@ -118,7 +118,7 @@ export const CustomerInfo = () => {
     return(<div className='customerInfoSection'>
               <div className = "customerInfo" >
                 <h2 className='formHeading'>Delivery details</h2>
-                <form id='customerForm'>                  
+                <form id='customerForm' autoComplete="off" >                  
                   <label id='nameLabel' className='labels'>Name*</label>
                   <input type="text" id="enterName" className='inputs'/>
                   <label id='addressLabel' className='labels'>Address*</label>
@@ -140,7 +140,7 @@ export const CustomerInfo = () => {
               </div>
               <div className = "registeredInfo">
                 <h2 className='formHeading'>Already a customer? Just enter your email</h2>
-                <form className='registeredForm'>
+                <form className='registeredForm' autoComplete="off" >
                   <label className='labels'>Email*</label>
                   <input type="email" id="knownMail"/>
                   <label className='labels'>Additional comments</label>

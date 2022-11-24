@@ -69,7 +69,7 @@ export const VerifyPurchase = () => {
 
     return(<div className="verifyPurchase">
               <h1 id="verificationTitle">Please verify the purchase</h1>
-              <form id="verifyForm">
+              <form id="verifyForm" autoComplete="off" >
                 <div id="captchaOuterWrapper">
                   <div id="captchaWrapper">
                     <div id="captchaInputWrapper">
